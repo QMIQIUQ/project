@@ -18,12 +18,7 @@
   </script>
 
   <style>
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      color: #fff;
-    }
+
     .context-dark, .bg-gray-dark, .bg-primary {
     color: rgba(255, 255, 255, 0.8);
 }
@@ -137,6 +132,9 @@ ul, ol {
             {{ __('Logout') }}
           </a>
 
+          <a class="dropdown-item" href="">
+              MyCart
+          </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form>
@@ -163,7 +161,7 @@ ul, ol {
 </body>
 
 
-<footer class="section footer-classic context-dark bg-image bg-dark" >
+<footer class="section footer-classic context-dark bg-image bg-dark"  style="margin-top: 20%">
   <div class="container">
     <div class="row row-30">
       <div class="col-md-4 col-xl-5">
@@ -217,7 +215,5 @@ ul, ol {
           class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
   </div>
 </footer>
-
-</body>
 
 </html>
