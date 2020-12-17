@@ -16,16 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+ 
 
-Route::get('/home', function () {
-    return view('welcome');
-});
 
 Route::get('/insertCategory', function () {
     return view('insertCategory');
 });
 
 Route::post('/insertCategory/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('addCategory');
+
+Route::get('/showCategory', [App\Http\Controllers\CategoryController::class, 'show'])->name('showCategory');
+
+Route::get('/deleteCategory/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('deleteCategory');
+
 
 
 Auth::routes();

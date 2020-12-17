@@ -78,8 +78,8 @@ ul, ol {
 
 
 
-    <a class="navbar-brand" href="{{ route('home') }}">
-      <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+    <a class="navbar-brand" href="{{url('/')}}">
+      <img src="{{ asset('images/MiniBar Icon.png')}}" width="30" height="30" class="d-inline-block align-top"
         alt="">
       MiniBarServices
     </a>
@@ -90,13 +90,13 @@ ul, ol {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">Shop</a>
         </li>
       </ul>
     </div>

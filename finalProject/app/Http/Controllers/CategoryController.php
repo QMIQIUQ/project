@@ -19,8 +19,6 @@ class CategoryController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -37,4 +35,18 @@ class CategoryController extends Controller
         Session::flash('success',"Product create succesful!");
         Return view('insertCategory');
     }
+
+    public function show(){
+        $categories=Category::all();//instead SQL select * from categories
+        return view('showCategory')->with('categories',$categories);
+    }
+
+    public function delete($id){
+        $categories=Category::find($id);
+        $categories->delete(); //apply delete from categories where id='$id'
+        Session::flash('deleteSuccess',"Product deleted succesful!");
+        return redirect()->route('showCategory');
+        
+    }
+
 }
