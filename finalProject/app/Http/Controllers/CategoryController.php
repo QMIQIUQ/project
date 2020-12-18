@@ -22,10 +22,10 @@ class CategoryController extends Controller
             
         ]);
     }
-
+    //hello
     public function store(){    
         $r=request(); 
-        $image=$r->file('product-image');
+        $image=$r->file('product-image'); 
         $image->move('images',$image->getClientOriginalName());               
         $imageName=$image->getClientOriginalName(); 
         $addCategory=Category::create([
