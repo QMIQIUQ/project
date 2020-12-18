@@ -26,4 +26,5 @@
         @endforeach
     </table>
 </div>
+
 @endsection('content')
