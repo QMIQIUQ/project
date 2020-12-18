@@ -22,7 +22,7 @@ class CategoryController extends Controller
             
         ]);
     }
-    //hello rubbish
+    //hello noob
     public function store(){    
         $r=request(); 
         $image=$r->file('product-image'); 
