@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('content')
 
-@if(Session::has('deleteSuccess'));
+@if(Session::has('deleteSuccess'))
 <div class="alert alert-success" role="alert">
     {{Session::get('deleteSuccess')}}
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Phone extends Model
 {
     use HasFactory;
-    protected $fillable=['id','ProductID','CategoryID','BrandID','productName','description','productImage'];
+    protected $fillable=['CategoryID','name','description','image','quantity','price'];
     public function category(){
         return $this->belongsTo('App\Models\Category');
     }
