@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Rating extends Model
 {
     use HasFactory;
-    protected $fillable=['id','RateID','userID','productID','comment','Rate'];
+    protected $fillable=['userID','productID','comment','Rate'];
 }

@@ -67,8 +67,8 @@
 <style>
     #profileDisplay {
         display: block;
-        width: 80%;
-        margin: 50px auto;
+        width: 50%;
+        margin: 10px auto;
         border-radius: 0%;
     }
 </style>
