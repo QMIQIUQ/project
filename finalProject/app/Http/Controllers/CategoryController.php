@@ -19,7 +19,7 @@ class CategoryController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            
+            'image'=>['required','image'],
         ]);
     }
     //hello rubbish

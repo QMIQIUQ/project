@@ -19,8 +19,11 @@
                         <h2 class="text-center text-info">Add New Category</h2><br>
 
                         <label for="name" class="text-info">Name</label><br>
-                        <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Search..." required >
-                       
+                        <input type="text" name="name" id="name"
+                            class="form-control  @error('name') is-invalid @enderror" name="name"
+                            value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Search..."
+                            required>
+
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -34,21 +37,23 @@
                         <div>
                             <img src="{{ asset('images/image.png')}}" onclick="triggerClick()" id="profileDisplay">
                             <input name="product-image" type="file" id="image" onchange="displayImage(this)"
-                                style="display: none;" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Category Name" required >
-                                @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                                style="display: none;" class="form-control  @error('image') is-invalid @enderror"
+                                 value="{{ old('image') }}" required autocomplete="image" autofocus
+                                placeholder="Category image">
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="form-group ">
 
-                        <button  type="submit" class="btn btn-primary " name="insert" value="Insert">
+                        <button type="submit" class="btn btn-primary " name="insert" value="Insert">
                             Add New Category
                         </button>
-                        
+
                     </div>
 
 
