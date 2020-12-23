@@ -5,9 +5,7 @@
 
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
-<script language="javascript" type="text/javascript" src="scripts/mootools-1.2.1-core.js"></script>
-<script language="javascript" type="text/javascript" src="scripts/mootools-1.2-more.js"></script>
-<script language="javascript" type="text/javascript" src="scripts/slideitmoo-1.1.js"></script>
+
 
 
 </head>
