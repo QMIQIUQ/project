@@ -82,4 +82,12 @@ class PhoneController extends Controller
         $products->save(); //run the SQL update statment
         return redirect()->route('showPhone');
     }
+    public function showProductDetail($id){
+       
+        $products =Phone::all()->where('id',$id);
+        //select * from products where id='$id'
+        
+        return view('phonedetail')->with('products',$products)
+                                ->with('categories',Category::all());
+    }
 }

@@ -38,7 +38,18 @@ Route::get('/deleteProduct/{id}', [App\Http\Controllers\PhoneController::class, 
 Route::post('/updatePhone', [App\Http\Controllers\PhoneController::class, 'update'])->name('updatePhone');
 
 //phone(user)
-Route::get('/userShowProduct', [App\Http\Controllers\userShowPhone::class, 'show'])->name('showProduct');
+Route::get('/userShowPhone', [App\Http\Controllers\userShowPhone::class, 'show'])->name('showPhone');
+Route::get('/phone_detail/{id}', [App\Http\Controllers\PhoneController::class, 'showProductDetail'])->name('product.detail');
+
+Route::post('/addToCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart'); // when user click on add to cart in product detail, id and quantity add to cart
+Route::get('/showmyCart', [App\Http\Controllers\CartController::class, 'showMyCart'])->name('show.Cart');  //user view all items added to cart
+Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'delete'])->name('deleteCart');
+
+Route::post('/createorder', [App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
+Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->name('my.order');
+Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
+// route for check status of the payment
+Route::get('/status', [App\Http\Controllers\PaymentController::class, 'getPaymentStatus'])->name('status');
 
 Auth::routes();
 

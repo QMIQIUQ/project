@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderListsTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,10 @@ class CreateOrderListsTable extends Migration
     {
         Schema::create('order_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('OrderID');
-            $table->string('CartID');
             $table->string('AddressID');
-            $table->string('UserID');
-            $table->string('OrderDetailID');
+            $table->string("paymentStatus");
+            $table->string("userID");
+            $table->integer("amount")->unsinged();
             $table->timestamps();
         });
     }
