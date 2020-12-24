@@ -14,22 +14,24 @@ class OrderController extends Controller
     public function add(){ 
 
         $r=request(); 
+        $address= DB::table('users')->where('id','=', Auth::id())->value('address');
         $addOrder=Order::create([
-            'AddressID'=>$r->Adrress,
+            'Address'=>$address,
             'amount'=>$r->amount,
             'paymentStatus'=>'pending',
             'userID'=>Auth::id(),
         ]); 
-
-        $orderID=DB::table('order_lists')->where('userID','=',Auth::id())->orderBy('created_at', 'desc')->first(); //get the lastest order ID
-
+        
+        
+        //get the lastest order ID
+        $orderID=DB::table('orders')->where('userID','=',Auth::id())->orderBy('created_at', 'desc')->first();
         $items=$r->input('item');
         foreach($items as $item => $value){
             $carts =Cart::find($value);
             $carts->orderID = $orderID->id;
             $carts->save();
         }
-
+        
         Session::flash('success',"Order succesful!");
         Return redirect()->route('my.order'); //redirect to payment
 
@@ -37,14 +39,13 @@ class OrderController extends Controller
 
     public function show(){
 
-        $myorders=DB::table('order_lists')
-        ->leftjoin('carts', 'order_lists.id', '=', 'carts.orderID')
+        $myorders=DB::table('orders')
+        ->leftjoin('carts', 'orders.id', '=', 'carts.orderID')
         ->leftjoin('phones', 'phones.id', '=', 'carts.ProductID')
-        ->leftjoin('users', 'users.address', '=', 'order_lists.address')
-        ->select('carts.*','order_lists.*','phones.*','carts.quantity as qty')
-        ->where('order_lists.userID','=',Auth::id())
+        ->select('carts.*','orders.*','phones.*','carts.quantity as qty')
+        ->where('orders.userID','=',Auth::id())
         ->get();
         //->paginate(3);
-        return view('Order')->with('myorders',$myorders);
+        return view('Order')->with('orders',$myorders);
     }
 }

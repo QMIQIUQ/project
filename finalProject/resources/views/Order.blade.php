@@ -15,13 +15,14 @@
 		            <th>Quantity</th>
 		            <th>Amount</th>
                     <th>Status</th>
+					<th>Address</th>
 		        </tr>
 		    </thead>
 		        <tbody>	
 				@php
 					$total=0;
 				@endphp
-                @foreach($myorders as $myorder)
+                @foreach($orders as $myorder)
 		            <tr>
 		                <td>{{$myorder->id}}</td>
                         <td><img src="{{ asset('images/') }}/{{$myorder->image}}" alt="" width="50"></td>
@@ -40,6 +41,7 @@
 		                <td>
 		                    {{ $myorder->paymentStatus }}
 		                </td>
+						<td>{{$myorder->Address}}</td>
 		            </tr> 
                 @endforeach
 				 

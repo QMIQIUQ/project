@@ -3,19 +3,19 @@
 <html >
 <head>
 
-<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+
 
 
 
 </head>
 
 <body id="subpage">
-
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <div id="templatemo_wrapper">
 	
     
-    <div id="templatemo_menu" class="ddsmoothmenu">
+    <div class="ddsmoothmenu">
        
         
     </div> <!-- end of templatemo_menu -->
@@ -46,7 +46,7 @@
         	<div class="col col_14 product_gallery">
           
             	<a href="{{ route('product.detail', ['id' => $product->id]) }}"><img src="{{ asset('images/') }}/{{$product->image}}" alt="" width="50%" ></a>
-                <h3>{{$product->name}}</h3>
+                <h3 font-size="20px">{{$product->name}}</h3>
                 <p class="product_price">RM{{$product->price}}</p>
                 <a href="" class="add_to_cart">Add to Cart</a>
             </div>        	

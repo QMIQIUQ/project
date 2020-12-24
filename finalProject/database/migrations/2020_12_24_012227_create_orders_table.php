@@ -13,9 +13,9 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_lists', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('AddressID');
+            $table->string('Address');
             $table->string("paymentStatus");
             $table->string("userID");
             $table->integer("amount")->unsinged();
@@ -30,6 +30,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_lists');
+        Schema::dropIfExists('orders');
     }
 }
