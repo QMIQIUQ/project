@@ -3,16 +3,16 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #666;
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 13px;
+
+	font-size: 23px;
 	line-height: 1.4em; 
 	background-color: #f7f7f7;
 	background-repeat: repeat-x;
 	background-position: top;
 }
 
-
-#subpage { background-image: url(../images/templatemo_body_subpage.png) }
+/* 
+#subpage { background-image: url(../images/templatemo_body_subpage.png) } */
 
 
 
@@ -53,7 +53,7 @@ body {
 	padding: 20px 30px 0 10px;
 }
 
-#content {
+#cont {
 	float: right;
 	width: 700px;
 	width: 700px;
@@ -83,13 +83,9 @@ body {
 	font-size: 11px;
 }
 
-#content h2 { font-size: 24px; padding-bottom: 10px; border-bottom: 1px solid #ccc; margin-bottom: 20px }
+#cont h2 { font-size: 24px; padding-bottom: 10px; border-bottom: 1px solid #ccc; margin-bottom: 20px }
 
 table td { border-bottom: 1px solid #ccc }
-
-.checkout input { border: 1px solid #ccc; margin-bottom: 15px; height: 20px; line-height: 18px; 	padding: 3px;}
-
-.faq h3 { font-size: 14px; margin: 30px 0 5px }
 
 .product_gallery {
 	margin-bottom: 60px;
@@ -101,14 +97,14 @@ table td { border-bottom: 1px solid #ccc }
 }
 
 .product_gallery h3 {
-	font-size: 16px;
+	font-size: 23px;
 	color: rgb(107, 107, 107);
-	font-weight: 700;
+	font-weight: 00;
 }
 
 .product_gallery .product_price {
 	color: #000;
-	font-weight: 800
+	font-weight: 700
 }
 
 .add_to_cart {
@@ -119,5 +115,5 @@ table td { border-bottom: 1px solid #ccc }
 
 .col { float: left; margin-right: 20px }
 
-.col_14 { width: 220px }
+.col_14 { width: 200px }
 

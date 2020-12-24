@@ -1,14 +1,6 @@
 
-<!DOCTYPE html >
-<html >
-<head>
-
-
-
-
-
-
-</head>
+@extends('layouts.app2')
+@section('content') 
 
 <body id="subpage">
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -28,7 +20,7 @@
         <div id="sidebar">
             <h3>Categories</h3>
            
-            <ul class="sidebar_menu">
+            <ul class="sidebar_menu" >
 			    <li><a href="#"></a></li>
                 <li><a href="#">Aenean pulvinar</a></li>				
                 <li><a href="#">Cras bibendum auctor</a></li>
@@ -39,7 +31,7 @@
       
         </div> <!-- END of sidebar -->
         
-        <div id="content" >
+        <div id="cont" >
      
             <h2>Etiam In Tellus</h2>
             @foreach($products as $product)
@@ -67,4 +59,4 @@
 </div>
 
 </body>
-</html>
+@endsection
