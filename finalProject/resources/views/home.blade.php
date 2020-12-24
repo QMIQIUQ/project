@@ -20,4 +20,6 @@
         </div>
     </div>
 </div>
+<script>window.location.href={{url('/')}}</script>
 @endsection
+

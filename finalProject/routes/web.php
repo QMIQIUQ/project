@@ -47,6 +47,8 @@ Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'del
 
 Route::post('/createorder', [App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
 Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->name('my.order');
+
+//paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
 // route for check status of the payment
 Route::get('/status', [App\Http\Controllers\PaymentController::class, 'getPaymentStatus'])->name('status');

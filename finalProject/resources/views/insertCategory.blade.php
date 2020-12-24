@@ -1,13 +1,30 @@
 @extends('layouts.app2')
 @section('content')
 
+@guest
+@if (Route::has('login'))
+<script>window.location.href='{{ route('login') }}'</script>
+{{-- <a class="nav-link" href="{{ route('login') }}">
+    <span class="glyphicon glyphicon-log-in"></span> {{ __('Login') }}
+  </a> --}}
+@endif
 
-@if(Session::has('storeSuccess'));
+@elseif (Auth::user()->admin == 0)
+
+
+
+
+@elseif (Auth::user()->admin == 1)
+
+
+
+@if(Session::has('success'))
 <div class="alert alert-success" role="alert">
-    {{Session::get('storeSuccess')}}
+    {{Session::get('success')}}
 
 </div>
 @endif
+
 <div class="container">
     <div class="row justify-content-center align-items-center ">
         <div class="col-md-6">
@@ -21,7 +38,7 @@
                         <label for="name" class="text-info">Name</label><br>
                         <input type="text" name="name" id="name"
                             class="form-control  @error('name') is-invalid @enderror" name="name"
-                            value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Search..."
+                            value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Category Name"
                             required>
 
                         @error('name')
@@ -38,7 +55,7 @@
                             <img src="{{ asset('images/image.png')}}" onclick="triggerClick()" id="profileDisplay">
                             <input name="product-image" type="file" id="image" onchange="displayImage(this)"
                                 style="display: none;" class="form-control  @error('image') is-invalid @enderror"
-                                 value="{{ old('image') }}" required autocomplete="image" autofocus
+                                value="{{ old('image') }}" required autocomplete="image" autofocus
                                 placeholder="Category image">
                             @error('image')
                             <span class="invalid-feedback" role="alert">
@@ -62,6 +79,9 @@
         </div>
     </div>
 </div>
+
+@endguest
+
 @endsection
 
 <style>

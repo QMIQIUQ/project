@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Category;
 Use Session;
+use Auth;
+
 
 class CategoryController extends Controller
 {
@@ -24,6 +26,9 @@ class CategoryController extends Controller
     }
     //hello noob
     public function store(){    
+        
+
+
         $r=request(); 
         $image=$r->file('product-image'); 
         $image->move('images',$image->getClientOriginalName());               

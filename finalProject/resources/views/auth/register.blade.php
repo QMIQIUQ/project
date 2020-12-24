@@ -79,14 +79,14 @@
                             </span>
                             @enderror
                         </div>
-
-                        <div class="form-group">
-                            <div class="offset-md-5">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="offset-md-5">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Register') }}
+                            </button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

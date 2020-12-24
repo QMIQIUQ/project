@@ -18,56 +18,63 @@
   </script>
 
   <style>
+    .context-dark,
+    .bg-gray-dark,
+    .bg-primary {
+      color: rgba(255, 255, 255, 0.8);
+    }
 
-    .context-dark, .bg-gray-dark, .bg-primary {
-    color: rgba(255, 255, 255, 0.8);
-}
+    .footer-classic a,
+    .footer-classic a:focus,
+    .footer-classic a:active {
+      color: #ffffff;
+    }
 
-.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
-    color: #ffffff;
-}
-.nav-list li {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+    .nav-list li {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
 
-.nav-list li a:hover:before {
-    margin-left: 0;
-    opacity: 1;
-    visibility: visible;
-}
+    .nav-list li a:hover:before {
+      margin-left: 0;
+      opacity: 1;
+      visibility: visible;
+    }
 
-ul, ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    ul,
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.social-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 23px;
-    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-}
-.social-container .col {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.nav-list li a:before {
-    content: "\f14f";
-    font: 400 21px/1 "Material Design Icons";
-    color: #4d6de6;
-    display: inline-block;
-    vertical-align: baseline;
-    margin-left: -28px;
-    margin-right: 7px;
-    opacity: 0;
-    visibility: hidden;
-    transition: .22s ease;
-}
+    .social-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 23px;
+      font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .social-container .col {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-list li a:before {
+      content: "\f14f";
+      font: 400 21px/1 "Material Design Icons";
+      color: #4d6de6;
+      display: inline-block;
+      vertical-align: baseline;
+      margin-left: -28px;
+      margin-right: 7px;
+      opacity: 0;
+      visibility: hidden;
+      transition: .22s ease;
+    }
   </style>
 
 </head>
@@ -79,8 +86,7 @@ ul, ol {
 
 
     <a class="navbar-brand" href="{{url('/')}}">
-      <img src="{{ asset('images/MiniBar Icon.png')}}" width="30" height="30" class="d-inline-block align-top"
-        alt="">
+      <img src="{{ asset('images/MiniBar Icon.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
       MiniBarServices
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -98,6 +104,7 @@ ul, ol {
         <li class="nav-item">
           <a class="nav-link" href="#">Shop</a>
         </li>
+
       </ul>
     </div>
 
@@ -119,10 +126,20 @@ ul, ol {
         <a class="nav-link" href="{{ route('register') }}"> {{ __('Register') }}</a>
       </li>
       @endif
+
+
+{{-- login --}}
       @else
+
+
       <li class="nav-item dropdown">
+        
+
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" v-pre>
+          @if (Auth::user()->admin == 1)
+      Admin 
+      @endif
           {{ Auth::user()->name }}
         </a>
 
@@ -133,8 +150,15 @@ ul, ol {
           </a>
 
           <a class="dropdown-item" href="">
-              MyCart
+            MyCart
           </a>
+          @if (Auth::user()->admin == 1)
+          <a class="dropdown-item" href="{{url('/insertCategory')}}">
+            Add Category
+          </a>
+
+          @endif
+
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form>
@@ -161,7 +185,7 @@ ul, ol {
 </body>
 
 
-<footer class="section footer-classic context-dark bg-image bg-dark"  style="margin-top: 20%">
+<footer class="section footer-classic context-dark bg-image bg-dark" style="margin-top: 20%">
   <div class="container">
     <div class="row row-30">
       <div class="col-md-4 col-xl-5">
