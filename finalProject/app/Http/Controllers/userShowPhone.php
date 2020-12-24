@@ -8,11 +8,25 @@ use App\Models\Phone;
 use App\Models\Category;
 Use Session;
 class userShowPhone extends Controller
-{
-    public function show(){
-        $products=Phone::paginate(4);
+{   
     
-        return view('userShowPhone')->with('products',$products);
+    public function show(){
+        $categories=Category::all();
+        if (request()->category) {
+            $products=DB::table('phones')
+            ->select('phones.*')
+            ->where('phones.CategoryID','=',request()->category)
+            ->get();
+        }else {
+            $products=Phone::all();
+            
+        }
+        
+        return view('userShowPhone')->with([
+            'products'=>$products,
+            'categories'=>$categories,
+            
+        ]);
     }
     
 }

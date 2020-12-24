@@ -4,7 +4,7 @@
 	    <div class="row">
 		<form   method="post" action="" >
 			@csrf
-		    <table class="table table-hover table-striped">
+		    <table class="table ">
 				
 		        <thead>
 		        <tr class="thead-dark">
@@ -50,7 +50,8 @@
                 <td>&nbsp;</td>
 		        <td>&nbsp;</td>                   
 		        <td>&nbsp;</td>
-		        <td><input type="hidden" name="amount" value="{{ $total }}"></td>
+				<td>&nbsp;</td>	
+		        <td><input type="" name="amount" value="RM{{ $total }}"></td>
                 <td><input type="submit" name="paynow" value="Pay Now"></td>
 		    </tr>
 		</form>					
