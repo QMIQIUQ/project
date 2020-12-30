@@ -7,11 +7,14 @@
 <script>window.location.href='{{ route('login') }}'</script>
 
 @endif
-@else
 
-@if(Session::has('storeSuccess'));
+@elseif (Auth::user()->admin == 0||Auth::user()->admin == 1)
+
+
+
+@if(Session::has('success'));
 <div class="alert alert-success" role="alert">
-    {{Session::get('storeSuccess')}}
+    {{Session::get('success')}}
 
 </div>
 @endif
