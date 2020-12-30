@@ -1,6 +1,20 @@
 @extends('layouts.app2')
 @section('content')
 
+@guest
+@if (Route::has('login'))
+<script>window.location.href='{{ route('login') }}'</script>
+
+@endif
+
+@elseif (Auth::user()->admin == 0)
+
+
+
+
+@elseif (Auth::user()->admin == 1)
+
+
 @if(Session::has('deleteSuccess'))
 <div class="alert alert-success" role="alert">
     {{Session::get('deleteSuccess')}}
@@ -33,5 +47,11 @@
 
 	</div>
 </div>
+
+
+
+
+@endguest
+
 
 @endsection('content')

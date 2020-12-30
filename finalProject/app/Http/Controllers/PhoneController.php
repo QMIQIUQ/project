@@ -7,6 +7,8 @@ use DB;
 use App\Models\Phone; 
 use App\Models\Category;
 Use Session;
+use Auth;
+
 
 class PhoneController extends Controller
 {
