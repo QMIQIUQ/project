@@ -22,6 +22,7 @@
           
             <ul class="sidebar_menu" >
             <li><a href="{{route('showPhone')}}">All</a></li>
+            
             @foreach($categories as $category)
 			    <li><a href="{{route('showPhone',['category'=>$category->id])}}">{{$category->name}}</a></li>
                 
@@ -31,8 +32,15 @@
         </div> <!-- END of sidebar -->
         
         <div id="cont" >
-     
-            <h2>{{$category->name}}</h2>
+           
+               
+          @foreach ($categoryName as $CName)
+              <h2>{{$CName->name}}</h2>
+          @endforeach
+              
+          
+           
+            
             @foreach($products as $product)
         	<div class="col col_14 product_gallery">
           

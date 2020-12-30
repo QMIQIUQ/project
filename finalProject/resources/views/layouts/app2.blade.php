@@ -102,7 +102,7 @@
           <a class="nav-link" href="#">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
+          <a class="nav-link" href="{{url('/userShowPhone')}}">Shop</a>
         </li>
 
       </ul>
