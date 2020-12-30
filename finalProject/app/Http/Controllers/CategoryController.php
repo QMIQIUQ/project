@@ -38,7 +38,7 @@ class CategoryController extends Controller
             'name'=>$r->name,
             'image'=>$imageName,
         ]);
-        Session::flash('success',"Product create succesful!");
+        Session::flash('success',"Category create succesful!");
         Return view('insertCategory');
     }
 
