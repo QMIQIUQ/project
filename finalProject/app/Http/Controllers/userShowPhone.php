@@ -28,7 +28,7 @@ class userShowPhone extends Controller
             
         }else {
             $products=Phone::all();
-            $categoryNames="All";
+            $categoryNames=null;
         }
         
         return view('userShowPhone')->with([

@@ -33,10 +33,18 @@
         
         <div id="cont" >
            
-               
-          @foreach ($categoryName as $CName)
-              <h2>{{$CName->name}}</h2>
-          @endforeach
+            @if($categoryName==null)
+                <h2>All</h2>
+            @else
+            @foreach ($categoryName as $CName)
+        
+            <h2>{{$CName->name}}</h2>
+        @endforeach 
+        @endif
+        
+
+             
+          
               
           
            
