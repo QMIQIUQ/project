@@ -149,7 +149,7 @@
             {{ __('Logout') }}
           </a>
 
-          <a class="dropdown-item" href="">
+          <a class="dropdown-item" href="{{url('/showmyCart')}}">
             MyCart
           </a>
           @if (Auth::user()->admin == 1)

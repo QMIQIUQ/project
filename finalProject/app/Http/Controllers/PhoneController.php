@@ -37,6 +37,7 @@ class PhoneController extends Controller
             'image'=>$imageName,
             'quantity'=>$r->quantity,
             'price'=>$r->price,
+            'userID'=>Auth::id(),
             
         ]);
         
