@@ -29,7 +29,7 @@
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr class="thead-dark">
-					<th>ID</th>
+					
 					<th>Image</th>
 					<th>Name</th>
 					<th>Category</th>
@@ -41,7 +41,7 @@
 			<tbody>
 				@foreach($products as $product)
 				<tr>
-					<td>{{$product->id}}</td>
+					
 					<td><img src="{{ asset('images/') }}/{{$product->image}}" alt="" width="50"></td>
 					<td style="max-width:300px">
 						<h6>{{$product->name}}</h6>

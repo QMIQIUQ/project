@@ -155,9 +155,11 @@
           </a>
           @if (Auth::user()->admin == 1)
           <a class="dropdown-item" href="{{url('/insertCategory')}}">
-            Add Category
+            Add Products Category
           </a>
-
+          <a class="dropdown-item" href="{{url('/showCategory')}}">
+            Show Procuct Category
+          </a>
           @endif
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

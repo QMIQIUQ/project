@@ -26,7 +26,6 @@
 	    <div class="row">
         <table class="table table-hover table-striped">
         <tr class="thead-dark" >
-            <th>ID</th>
             <th>Image</th>
             <th>Name</th>
             <th>Action</th>
@@ -35,7 +34,6 @@
 
         @foreach($categories as $category)
         <tr>
-            <td>{{$category->id}}</td>
             <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px"></td>
             <td>{{$category->name}}</td>
             <td><a href="{{ route('deleteCategory', ['id' => $category->id]) }}" class="btn btn-danger">Delete</a></td>
