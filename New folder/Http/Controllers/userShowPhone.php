@@ -11,8 +11,7 @@ class userShowPhone extends Controller
 {   
     
     public function show(){
-        
-        $categories=Category::all();
+  
         if (request()->category) {
             $products=DB::table('phones')
             ->select('phones.*')
