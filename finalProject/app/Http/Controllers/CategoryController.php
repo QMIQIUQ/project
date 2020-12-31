@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Category;
+use App\Models\Phone;
 Use Session;
 use Auth;
 
@@ -38,7 +39,7 @@ class CategoryController extends Controller
             'name'=>$r->name,
             'image'=>$imageName,
         ]);
-        Session::flash('success',"Product create succesful!");
+        Session::flash('success',"Category create succesful!");
         Return view('insertCategory');
     }
 
@@ -49,6 +50,8 @@ class CategoryController extends Controller
 
     public function delete($id){
         $categories=Category::find($id);
+        Phone::where('categoryID',$id)->delete();
+
         $categories->delete(); //apply delete from categories where id='$id'
         Session::flash('deleteSuccess',"Product deleted succesful!");
         return redirect()->route('showCategory');

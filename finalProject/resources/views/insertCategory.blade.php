@@ -4,9 +4,7 @@
 @guest
 @if (Route::has('login'))
 <script>window.location.href='{{ route('login') }}'</script>
-{{-- <a class="nav-link" href="{{ route('login') }}">
-    <span class="glyphicon glyphicon-log-in"></span> {{ __('Login') }}
-  </a> --}}
+
 @endif
 
 @elseif (Auth::user()->admin == 0)

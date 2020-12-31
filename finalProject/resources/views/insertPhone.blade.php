@@ -1,9 +1,20 @@
 
 @extends('layouts.app2')
 @section('content') 
-@if(Session::has('storeSuccess'));
+
+@guest
+@if (Route::has('login'))
+<script>window.location.href='{{ route('login') }}'</script>
+
+@endif
+
+@elseif (Auth::user()->admin == 0||Auth::user()->admin == 1)
+
+
+
+@if(Session::has('success'));
 <div class="alert alert-success" role="alert">
-    {{Session::get('storeSuccess')}}
+    {{Session::get('success')}}
 
 </div>
 @endif
@@ -17,7 +28,7 @@
                         <h2 class="text-center text-info">Add New Product</h2><br>
 
                         <label for="name" class="text-info">Name</label><br>
-                        <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Search..." required >
+                        <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Product name..." required >
                        
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -26,9 +37,8 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                         <label for="description" class="text-info">Description</label><br>
-                        <input type="text" name="description" id="description" class="form-control  @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Search..." required >
-                       
+                         <label for="description" class="text-info">Product Description</label><br>
+                        <textarea rows="4" name="description" id="description" class="form-control  @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Product description..." required ></textarea>
                         @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -94,6 +104,8 @@
         </div>
     </div>
 </div>
+@endguest
+
 @endsection
 
 <style>

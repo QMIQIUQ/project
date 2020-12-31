@@ -7,6 +7,8 @@ use DB;
 use App\Models\Phone; 
 use App\Models\Category;
 Use Session;
+use Auth;
+
 
 class PhoneController extends Controller
 {
@@ -21,6 +23,7 @@ class PhoneController extends Controller
     }
     public function create(){
         return view('insertPhone') ->with('categories',Category::all());
+
     }
     public function store(){    //step 2 
         $r=request(); //step 3 get data from HTML
@@ -36,15 +39,17 @@ class PhoneController extends Controller
             'image'=>$imageName,
             'quantity'=>$r->quantity,
             'price'=>$r->price,
+            'userID'=>Auth::id(),
             
         ]);
+        
         Session::flash('success',"Product create succesful!");
 
         return redirect()->route('insertPhone');
     }
 
     public function show(){
-        $products=Phone::paginate(4);
+        $products=Phone::paginate(5);
         
         return view('showPhone')->with('products',$products);
     }

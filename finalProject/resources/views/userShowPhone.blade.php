@@ -22,6 +22,7 @@
           
             <ul class="sidebar_menu" >
             <li><a href="{{route('showPhone')}}">All</a></li>
+            
             @foreach($categories as $category)
 			    <li><a href="{{route('showPhone',['category'=>$category->id])}}">{{$category->name}}</a></li>
                
@@ -31,9 +32,23 @@
         </div> <!-- END of sidebar -->
         
         <div id="cont" >
-    
-            <h2>{{$categoryName}}</h2>
+           
+            @if($categoryName==null)
+                <h2>All</h2>
+            @else
+            @foreach ($categoryName as $CName)
+        
+            <h2>{{$CName->name}}</h2>
+        @endforeach 
+        @endif
+        
 
+             
+          
+              
+          
+           
+            
             @foreach($products as $product)
         	<div class="col col_14 product_gallery">
           

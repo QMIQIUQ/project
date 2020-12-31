@@ -17,22 +17,25 @@ class userShowPhone extends Controller
             ->select('phones.*')
             ->where('phones.CategoryID','=',request()->category)
             ->get();
-            $categories=Category::all();
-            $categoryName =DB::table('categories')
-            ->select('categories.name')
-            ->where('categories.id','=',request()->category)->first()->name;
-          
+            
+
+
+            $categoryNames=DB::table('categories')
+            ->select('categories.*')
+            ->where('categories.id','=',request()->category)
+            ->get();
+            
         }else {
             $products=Phone::all();
-            $categories=Category::all();
-            $categoryName='Featured';
+            $categoryNames=null;
         }
         
         return view('userShowPhone')->with([
             'products'=>$products,
             'categories'=>$categories,
-            'categoryName'=>$categoryName,
+            'categoryName'=>$categoryNames,
         ]);
+        
     }
     
 }
