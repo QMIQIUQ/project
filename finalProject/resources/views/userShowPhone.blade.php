@@ -24,15 +24,16 @@
             <li><a href="{{route('showPhone')}}">All</a></li>
             @foreach($categories as $category)
 			    <li><a href="{{route('showPhone',['category'=>$category->id])}}">{{$category->name}}</a></li>
-                
+               
             @endforeach
 			</ul>
-            
+      
         </div> <!-- END of sidebar -->
         
         <div id="cont" >
-     
-            <h2>{{$category->name}}</h2>
+    
+            <h2>{{$categoryName}}</h2>
+
             @foreach($products as $product)
         	<div class="col col_14 product_gallery">
           
