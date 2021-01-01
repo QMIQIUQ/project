@@ -4,6 +4,10 @@
         <div class="alert alert-success" role="alert">
             {{ Session::get('success')}}
         </div>       
+@elseif(Session::has('fail'))           
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('fail')}}
+        </div>       
 @endif 
     
 <script> 
@@ -35,8 +39,8 @@
 		    <table class="table table-hover table-striped">
 		        <thead>
 		        <tr class="thead-dark">
-		            <th>ID</th>
-                    <th>Image</th>
+		            <th> &nbsp;</th>
+                    <th>Item</th>
 		            <th>Name</th>
 		            <th>Quantity</th>
 		            <th>Amount</th>
@@ -60,7 +64,7 @@
 		                <td>
 		                     
                             <a href="{{ route('deleteCart', ['id' => $cart->cid]) }}" 
- class="btn btn-danger" onclick="return confirm('Sure Want Delete?')">Delete</a>
+ class="btn btn-danger" onclick="return confirm('Sure Want Delete?')">Remove</a>
 		                </td>
 		            </tr> 
                 @endforeach
@@ -70,7 +74,7 @@
                     <td>&nbsp;</td>
 		            <td>&nbsp;</td>                   
 		            <td>Total</td>
-		            <td><input type="text" name="amount" id="amount" value=""></td>
+		            <td><input type="text" name="amount" id="amount" value=""disabled></td>
                 <td><input type="submit" name="checkout" value="Checkout"></td>
 		        </tr>
 				</form>

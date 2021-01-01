@@ -17,7 +17,7 @@ class CreatePhonesTable extends Migration
             $table->id();
             $table->string('CategoryID');
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->string('image');
             $table->integer('quantity')->unsigned();
             $table->double('price',8,2);

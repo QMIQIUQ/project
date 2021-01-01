@@ -18,8 +18,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="{{asset('assets/addchat/css/addchat.min.css')}}" rel="stylesheet">
+ 
 </head>
 <body>
+<!-- 2. AddChat widget -->
+<div id="addchat_app" 
+    data-baseurl="{{url('')}} "
+    data-csrfname="{{'X-CSRF-Token'}}"
+    data-csrftoken="{{csrf_token()}} "
+></div>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -79,5 +89,11 @@
             @yield('content')
         </main>
     </div>
+    <!-- 3. AddChat JS -->
+<!-- Modern browsers -->
+<script type="module" src=" {{ asset('assets/addchat/js/addchat.min.js')}} "></script>
+<!-- Fallback support for Older browsers -->
+<script nomodule src=" {{ asset('assets/addchat/js/addchat-legacy.min.js')}} "></script>
+
 </body>
 </html>

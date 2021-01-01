@@ -8,8 +8,8 @@
 				
 		        <thead>
 		        <tr class="thead-dark">
-		            <th>ID</th>
-                    <th>Image</th>
+		            <td>&nbsp;</td>
+                    <th>Item</th>
 		            <th>Name</th>
                    
 		            <th>Quantity</th>
@@ -51,7 +51,7 @@
 		        <td>&nbsp;</td>                   
 		        <td>&nbsp;</td>
 				<td>&nbsp;</td>	
-		        <td><input type="" name="amount" value="RM{{ $total }}"></td>
+		        <td><input type="" name="amount" value="RM{{ $total }}" disabled></td>
                 <td><input type="submit" name="paynow" value="Pay Now"></td>
 		    </tr>
 		</form>					

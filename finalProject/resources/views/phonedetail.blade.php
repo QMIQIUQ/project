@@ -32,12 +32,20 @@
                     </tr>
                     <tr>
                         <td height="30">Manufacturer:</td>
-                        <td>Apple</td>
+                        <td>OEM</td>
                     </tr>
                     <tr><td height="50">Quantity</td><td><input type="number" name="quantity" id="qty" value="1" min="1" max="{{$product->quantity}}"></td></tr>
                 </table>
                 <div class="cleaner h20"></div>
-                <button type="submit"  class="btn btn-secondary"style="height:40px; font-size: 15px;"	>Add To Cart</button>
+                
+                <input type="hidden" value = "{{ $count=$product->quantity}}" >
+                @if ($count == 0)
+                <button type="submit"  class="btn btn-danger"style="height:40px; font-size: 15px;" disabled	>sold out</button>
+            @else
+                
+                    <button type="submit"  class="btn btn-secondary"style="height:40px; font-size: 15px;"	>Add To Cart</button>
+               
+             @endif
                 
 			</div>
             <div class="cleaner h30"></div>

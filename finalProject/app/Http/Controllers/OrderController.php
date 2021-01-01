@@ -15,12 +15,18 @@ class OrderController extends Controller
 
         $r=request(); 
         $address= DB::table('users')->where('id','=', Auth::id())->value('address');
-        $addOrder=Order::create([
+        $count=$r->amount;
+        if($count==null){
+            Session::flash('fail',"Please Seclet item to Checkout");
+            Return redirect()->route('show.Cart');
+        }else{
+            $addOrder=Order::create([
             'Address'=>$address,
             'amount'=>$r->amount,
             'paymentStatus'=>'pending',
             'userID'=>Auth::id(),
-        ]); 
+            ]); 
+            
         
         
         //get the lastest order ID
@@ -32,9 +38,10 @@ class OrderController extends Controller
             $carts->save();
         }
         
-        Session::flash('success',"Order succesful!");
-        Return redirect()->route('my.order'); //redirect to payment
+        Session::flash('success',"Order created!");
 
+        Return redirect()->route('my.order'); //redirect to payment
+    }
     }
 
     public function show(){
