@@ -29,7 +29,7 @@ class CartController extends Controller
                         
         ]);
         Session::flash('success',"Product add succesful!");        
-        Return redirect()->route('showPhone');
+        Return redirect()->route('userShowPhone');
     }
 
     public function showMyCart(){

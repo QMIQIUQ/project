@@ -16,7 +16,7 @@ class OrderController extends Controller
         $r=request(); 
         $address= DB::table('users')->where('id','=', Auth::id())->value('address');
         $count=$r->amount;
-        if($count==null){
+        if($count==null||$count==0){
             Session::flash('fail',"Please Seclet item to Checkout");
             Return redirect()->route('show.Cart');
         }else{

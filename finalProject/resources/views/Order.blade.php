@@ -8,7 +8,7 @@
 				
 		        <thead>
 		        <tr class="thead-dark">
-		            <td>&nbsp;</td>
+		            
                     <th>Item</th>
 		            <th>Name</th>
                    
@@ -24,7 +24,7 @@
 				@endphp
                 @foreach($orders as $myorder)
 		            <tr>
-		                <td>{{$myorder->id}}</td>
+		                
                         <td><img src="{{ asset('images/') }}/{{$myorder->image}}" alt="" width="50"></td>
 		                <td style="max-width:300px">
 		                    <h6>{{$myorder->name}}</h6>		                   
@@ -51,6 +51,7 @@
 		        <td>&nbsp;</td>                   
 		        <td>&nbsp;</td>
 				<td>&nbsp;</td>	
+				<input type="hidden" name="amount" value="RM{{ $total }}" >
 		        <td><input type="" name="amount" value="RM{{ $total }}" disabled></td>
                 <td><input type="submit" name="paynow" value="Pay Now"></td>
 		    </tr>

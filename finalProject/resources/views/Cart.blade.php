@@ -10,26 +10,7 @@
         </div>       
 @endif 
     
-<script> 
- 
- var total=0;
-    function Cal() {
-        var prices = document.getElementsByName('price[]');
-        var cboxes = document.getElementsByName('item[]');    
-        var totalP=0;
-        
-        for (var i=0; i<cboxes.length; i++) {        
-            if(cboxes[i].checked){		
-                totalP+=parseFloat(prices[i].value);
-            }else if (cboxes[i].checked=false){
-				totalP-=parseFloat(prices[i].value);
-			}
-        }
-        document.getElementById('amount').value=totalP.toFixed(2);
-    }
 
-    
-    </script>
     
 
 <div class="container">
@@ -73,8 +54,9 @@
 		            <td>&nbsp;</td>
                     <td>&nbsp;</td>
 		            <td>&nbsp;</td>                   
-		            <td>Total</td>
-		            <td><input type="text" name="amount" id="amount" value=""disabled></td>
+                    <td>Total</td>
+                    <input type="hidden" name="amount" id="amount" >
+		            <td><input type="text" name="amount" id="amount" disabled></td>
                 <td><input type="submit" name="checkout" value="Checkout"></td>
 		        </tr>
 				</form>
@@ -89,3 +71,24 @@
     </div>
 
 @endsection
+
+<script> 
+ 
+    var total=0;
+       function Cal() {
+           var prices = document.getElementsByName('price[]');
+           var cboxes = document.getElementsByName('item[]');    
+           var totalP=0;
+           
+           for (var i=0; i<cboxes.length; i++) {        
+               if(cboxes[i].checked){		
+                   totalP+=parseFloat(prices[i].value);
+               }else if (cboxes[i].checked=false){
+                   totalP-=parseFloat(prices[i].value);
+               }
+           }
+           document.getElementById('amount').value=totalP.toFixed(2);
+       }
+   
+       
+       </script>

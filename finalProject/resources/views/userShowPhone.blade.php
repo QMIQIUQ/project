@@ -2,6 +2,13 @@
 @extends('layouts.app2')
 @section('content') 
 
+@if(Session::has('success'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('success')}}
+
+</div>
+@endif
+
 <body id="subpage">
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <div id="templatemo_wrapper">
@@ -55,7 +62,7 @@
             	<a href="{{ route('product.detail', ['id' => $product->id]) }}"><img src="{{ asset('images/') }}/{{$product->image}}" alt="" width="50%" ></a>
                 <h3 >{{$product->name}}</h3>
                 <p class="product_price">RM{{$product->price}}</p>
-                <a href="" class="add_to_cart">Add to Cart</a>
+                <a href="{{ route('product.detail', ['id' => $product->id]) }}" class="add_to_cart">Add to Cart</a>
             </div>        	
            
             
