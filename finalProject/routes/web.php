@@ -48,6 +48,10 @@ Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'del
 Route::post('/createorder', [App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
 Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->name('my.order');
 
+Route::get('/service', function () {
+    return view('service');
+});
+
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
 // route for check status of the payment

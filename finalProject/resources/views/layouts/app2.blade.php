@@ -100,7 +100,7 @@
           <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" href="{{url('/service')}}">Services</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('/userShowPhone')}}">Shop</a>
