@@ -38,7 +38,7 @@ Route::get('/deleteProduct/{id}', [App\Http\Controllers\PhoneController::class, 
 Route::post('/updatePhone', [App\Http\Controllers\PhoneController::class, 'update'])->name('updatePhone');
 
 //phone(user)
-Route::get('/userShowPhone', [App\Http\Controllers\userShowPhone::class, 'show'])->name('showPhone');
+Route::get('/userShowPhone', [App\Http\Controllers\userShowPhone::class, 'show'])->name('userShowPhone');
 Route::get('/phone_detail/{id}', [App\Http\Controllers\PhoneController::class, 'showProductDetail'])->name('product.detail');
 
 Route::post('/addToCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart'); // when user click on add to cart in product detail, id and quantity add to cart

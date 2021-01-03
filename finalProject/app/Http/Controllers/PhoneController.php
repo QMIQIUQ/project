@@ -72,14 +72,14 @@ class PhoneController extends Controller
 
      public function update(){
         $r=request();//retrive submited form data
-        $products =Phone::find($r->ID);  //get the record based on product ID      
+        $products =Phone::find($r->id);  //get the record based on product ID      
         if($r->file('product-image')!=''){
             $image=$r->file('product-image');        
             $image->move('images',$image->getClientOriginalName());                   
             $imageName=$image->getClientOriginalName(); 
             $products->image=$imageName;
             }         
-        $products->name=$r->name;
+        $products->name = $r->name;
         $products->description=$r->description;
         $products->categoryID=$r->category;
         $products->price=$r->price;
@@ -87,6 +87,8 @@ class PhoneController extends Controller
         $products->save(); //run the SQL update statment
         return redirect()->route('showPhone');
     }
+
+
     public function showProductDetail($id){
        
         $products =Phone::all()->where('id',$id);
