@@ -31,7 +31,7 @@ Route::get('/showCategory', [App\Http\Controllers\CategoryController::class, 'sh
 Route::get('/deleteCategory/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('deleteCategory');
 //Phone(seller)
 Route::post('/insertPhone/store', [App\Http\Controllers\PhoneController::class, 'store'])->name('addPhone');
-Route::get('/showPhone', [App\Http\Controllers\PhoneController::class, 'show'])->name('showPhone');
+Route::get('/showPhone', [App\Http\Controllers\PhoneController::class, 'showProduct'])->name('showPhone');
 Route::get('/insertPhone', [App\Http\Controllers\PhoneController::class, 'create'])->name('insertPhone');
 Route::get('/editPhone/{id}', [App\Http\Controllers\PhoneController::class, 'edit'])->name('editPhone');
 Route::get('/deleteProduct/{id}', [App\Http\Controllers\PhoneController::class, 'delete'])->name('deletePhone');

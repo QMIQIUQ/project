@@ -52,7 +52,7 @@ bgc2, .vLine, .hLine {
     </ol>
     <div class="carousel-inner" role="listbox">
       <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" ><img src="{{ asset('images/banner.jpg')}} ">
+      <div class="carousel-item active" ><img src="{{ asset('images/banner.png')}} ">
         
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->

@@ -50,7 +50,14 @@ class PhoneController extends Controller
 
     public function show(){
         $products=Phone::paginate(5);
-        
+        return view('showPhone')->with('products',$products);
+    }
+
+    public function showProduct(){
+        $products=Phone::where('phones.userID','=',Auth::id())
+        ->paginate(5)
+        ;
+
         return view('showPhone')->with('products',$products);
     }
 
