@@ -59,6 +59,10 @@ Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'searc
 Route::get('/search',[App\Http\Controllers\ProductController::class, 'index'])->name('search');
 Route::get('/autocomplete',[App\Http\Controllers\ProductController::class, 'autocomplete'])->name('autocomplete');
 
+//register RepairShop
+Route::get('/insertRepairServices', function () {
+    return view('insertRepairServices');
+});
 
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');

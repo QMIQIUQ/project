@@ -16,7 +16,8 @@ class CreateRepairsTable extends Migration
         Schema::create('repairs', function (Blueprint $table) {
             $table->id();
             $table->string('userID');
-            $table->string('SellerID');
+            $table->string('sellerID');
+            $table->longText('description');
             $table->timestamps();
         });
     }

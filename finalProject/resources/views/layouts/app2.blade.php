@@ -170,7 +170,7 @@
           @if (Auth::user()->admin == 0||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header">Join our team!</div>
-          <a class="dropdown-item" href="{{url('/#')}}">
+          <a class="dropdown-item" href="{{url('/insertRepairShop')}}">
             Register Repair Services
           </a>
           @endif

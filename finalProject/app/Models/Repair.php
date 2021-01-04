@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Repair extends Model
 {
     use HasFactory;
-    protected $fillable=['userID','SellerID'];
+    protected $fillable=['userID','SellerID','description'];
 }
