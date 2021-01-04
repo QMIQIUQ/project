@@ -64,7 +64,9 @@ Route::get('/insertRepairServices', function () {
     return view('insertRepairServices');
 });
 Route::post('/insertRepairServices/store', [App\Http\Controllers\CompanyController::class, 'store'])->name('insertRepairServices'); 
-
+Route::get('/registerStatus', function () {
+    return view('registerStatus');
+});
 
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');

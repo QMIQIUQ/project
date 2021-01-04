@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\insertCompany;
+use App\Models\User;
 use Auth;
-use User;
 Use Session;
 
 class CompanyController extends Controller
@@ -26,11 +27,11 @@ class CompanyController extends Controller
 
 
         $r=request(); 
-        $user = User::find(Auth::id());
+        $user = User::find(Auth::id());  
         $image=$r->file('product-image'); 
         $image->move('images',$image->getClientOriginalName());               
         $imageName=$image->getClientOriginalName(); 
-        Category::create([
+        insertCompany::create([
             'userID'=>Auth::id(),
             'name'=>$r->name,
             'description'=>$r->description,
@@ -40,8 +41,9 @@ class CompanyController extends Controller
             'image'=>$imageName,
         ]);
         $user->services=1;
-        
+        $user->save();
+
         Session::flash('success',"Category create succesful!");
-        Return view('insertCategory');
+        Return view('registerStatus');
     }
 }
