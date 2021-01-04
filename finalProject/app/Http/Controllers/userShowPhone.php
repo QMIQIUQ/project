@@ -38,6 +38,19 @@ class userShowPhone extends Controller
         
     }
 
+    public function index()
+    {
+        return view('userShowPhone');
+    }
+  
+   
+    public function autocomplete(Request $request)
+    {
+        $data = Phone::select("name")
+                ->where("name","LIKE", '%'.$request->get('query').'%')
+                ->get();
+        return response()->json($data);
+    }
     
     public function search()
     {

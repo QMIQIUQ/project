@@ -55,6 +55,9 @@ Route::get('/service', function () {
 
 //search
 Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
+//auto complete search
+Route::get('/search',[App\Http\Controllers\ProductController::class, 'index'])->name('search');
+Route::get('/autocomplete',[App\Http\Controllers\ProductController::class, 'autocomplete'])->name('autocomplete');
 
 
 //paypal

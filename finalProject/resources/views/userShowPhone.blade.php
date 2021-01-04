@@ -45,11 +45,25 @@
 
             <div id="cont">
                 {{-- search --}}
-<form action="{{ route('search.product') }}" method="post">
-    @csrf
-    <input type="text" name="searchProduct" id="searchProduct">
-    <button class="btn btn-info" type="submit">Search</button>
-</form>
+                <div>
+                    <form action="{{ route('search.product') }}" method="post">
+                        @csrf
+                        <input type="text" name="searchProduct" id="searchProduct">
+                        <button class="btn btn-info" type="submit">Search</button>
+                    </form>
+
+                    <script type="text/javascript">
+                        var path = "{{ route('autocomplete') }}";
+                        $('input.typeahead').typeahead({
+                            source:  function (query, process) {
+                            return $.get(path, { query: query }, function (data) {
+                             return process(data);
+                                });
+                            }
+                        });
+                    </script>
+                </div>
+
                 @if($categoryName==null)
                 <h2></h2>
                 @else
