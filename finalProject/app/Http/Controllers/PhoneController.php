@@ -104,4 +104,6 @@ class PhoneController extends Controller
         return view('phonedetail')->with('products',$products)
                                 ->with('categories',Category::all());
     }
+
+
 }

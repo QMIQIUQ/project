@@ -48,9 +48,14 @@ Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'del
 Route::post('/createorder', [App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
 Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->name('my.order');
 
+//services
 Route::get('/service', function () {
     return view('service');
 });
+
+//search
+Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
+
 
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
