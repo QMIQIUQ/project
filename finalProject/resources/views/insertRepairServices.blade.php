@@ -30,7 +30,7 @@
                         <h2 class="text-center text-info">Register Repair Services</h2><br>
 
                         <label for="name" class="text-info">Company Name</label><br>
-                        <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Company Name" required >
+                        <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Company Name..." required >
                        
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -38,48 +38,53 @@
                         </span>
                         @enderror
                     </div>
+
+                    
                     <div class="form-group">
                          <label for="description" class="text-info">Product Description</label><br>
-                        <textarea rows="4" name="description" id="description" class="form-control  @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Product description..." required ></textarea>
+                        <textarea rows="4" name="description" id="description" class="form-control  @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Company description..." required ></textarea>
                         @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
+
                     <div class="form-group">
-                    <label for="category" class="text-info">Category</label><br>
-                    <select name= "category" id= "category" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ old('category') }}" required autocomplete="category" autofocus placeholder="Search..." required >
- 
-                    </select> 
-                    @error('category')
+                        <label for="address" class="text-info">address</label><br>
+                        <input type="text" name="address" id="address" class="form-control  @error('address') is-invalid @enderror" value="{{ old('address') }}" required autocomplete="quantity" autofocus placeholder="address..." required >
+                       
+                        @error('address')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
+
                     <div class="form-group">
-                        <label for="quantity" class="text-info">Quantity</label><br>
-                        <input type="number" name="quantity" id="quantity" class="form-control  @error('quantity') is-invalid @enderror" name="quantity" value="{{ old('quantity') }}" required autocomplete="quantity" autofocus placeholder="Search..." required >
+                        <label for="Tel" class="text-info">Price</label><br>
+                        <input type="text" name="Tel" id="Tel" class="form-control  @error('price') is-invalid @enderror" value="{{ old('Tel') }}" required autocomplete="Tel" autofocus placeholder="Tel number..." required >
                        
-                        @error('quantity')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="price" class="text-info">Price</label><br>
-                        <input type="number" name="price" id="price" class="form-control  @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus placeholder="Search..." required >
-                       
-                        @error('price')
+                        @error('Tel')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div> 
+
                     <div class="form-group">
-                        <label for="image" class="text-info">Image</label><br>
+                        <label for="ownerName" class="text-info">Owner Name</label><br>
+                        <input type="text" name="ownerName" id="ownerName" class="form-control  @error('name') is-invalid @enderror" value="{{ old('ownerName') }}" required autocomplete="ownerName" autofocus placeholder="ownerName..." required >
+                       
+                        @error('ownerName')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image" class="text-info">Company Image</label><br>
 
                         <div>
                             <img src="{{ asset('images/image.png')}}" onclick="triggerClick()" id="profileDisplay">
@@ -95,7 +100,7 @@
                      <div class="form-group ">
 
                         <button  type="submit" class="btn btn-primary " name="insert" value="Insert">
-                            Add New Product
+                            Register
                         </button>
                         
                     </div>

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class insertCompany extends Model
 {
     use HasFactory;
-    protected $fillable=['name','description','address','Tel','ownerName','image'];
+    protected $fillable=['userID','name','description','address','Tel','ownerName','image'];
 
 }

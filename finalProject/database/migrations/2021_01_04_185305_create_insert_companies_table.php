@@ -15,6 +15,7 @@ class CreateInsertCompaniesTable extends Migration
     {
         Schema::create('insert_companies', function (Blueprint $table) {
             $table->id();
+            $table->integer('userID');
             $table->string('name');
             $table->longText('description');
             $table->string('address');

@@ -59,7 +59,7 @@ Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'searc
 Route::get('/search',[App\Http\Controllers\ProductController::class, 'index'])->name('search');
 Route::get('/autocomplete',[App\Http\Controllers\ProductController::class, 'autocomplete'])->name('autocomplete');
 
-//register RepairShop
+//register RepairServices
 Route::get('/insertRepairServices', function () {
     return view('insertRepairServices');
 });
