@@ -167,7 +167,7 @@
             Your Product
           </a>
           
-          @if (Auth::user()->admin == 0||Auth::user()->admin == 1)
+          @if ((Auth::user()->admin == 0 &&Auth::user()->service == 0)||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header">Join our team!</div>
           <a class="dropdown-item" href="{{url('/insertRepairServices')}}">

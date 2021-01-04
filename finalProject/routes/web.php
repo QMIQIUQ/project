@@ -63,6 +63,8 @@ Route::get('/autocomplete',[App\Http\Controllers\ProductController::class, 'auto
 Route::get('/insertRepairServices', function () {
     return view('insertRepairServices');
 });
+Route::post('/insertRepairServices/store', [App\Http\Controllers\CompanyController::class, 'store'])->name('insertRepairServices'); 
+
 
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');

@@ -24,7 +24,7 @@
     <div class="row justify-content-center align-items-center ">
         <div class="col-md-6">
             <div class="col-md-12">
-            <form class="subform"  method="post" action="" enctype="multipart/form-data">
+            <form class="subform"  method="post" action="{{route('insertRepairServices')}}" enctype="multipart/form-data">
                     @csrf <!-- very important if you didn't insert CSRF, it not allow submit the data-->
                     <div class="form-group">
                         <h2 class="text-center text-info">Register Repair Services</h2><br>
@@ -42,8 +42,8 @@
                     
                     <div class="form-group">
                          <label for="description" class="text-info">Product Description</label><br>
-                        <textarea rows="4" name="description" id="description" class="form-control  @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Company description..." required ></textarea>
-                        @error('description')
+                        <textarea rows="4" name="description" id="description" class="form-control  @error('name') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Company description..." required ></textarea>
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -52,9 +52,9 @@
 
                     <div class="form-group">
                         <label for="address" class="text-info">address</label><br>
-                        <input type="text" name="address" id="address" class="form-control  @error('address') is-invalid @enderror" value="{{ old('address') }}" required autocomplete="quantity" autofocus placeholder="address..." required >
+                        <input type="text" name="address" id="address" class="form-control  @error('name') is-invalid @enderror" value="{{ old('address') }}" required autocomplete="quantity" autofocus placeholder="address..." required >
                        
-                        @error('address')
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -62,10 +62,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Tel" class="text-info">Price</label><br>
-                        <input type="text" name="Tel" id="Tel" class="form-control  @error('price') is-invalid @enderror" value="{{ old('Tel') }}" required autocomplete="Tel" autofocus placeholder="Tel number..." required >
+                        <label for="Tel" class="text-info">Company Tel</label><br>
+                        <input type="text" name="Tel" id="Tel" class="form-control  @error('name') is-invalid @enderror" value="{{ old('Tel') }}" required autocomplete="Tel" autofocus placeholder="Tel number..." required >
                        
-                        @error('Tel')
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -76,7 +76,7 @@
                         <label for="ownerName" class="text-info">Owner Name</label><br>
                         <input type="text" name="ownerName" id="ownerName" class="form-control  @error('name') is-invalid @enderror" value="{{ old('ownerName') }}" required autocomplete="ownerName" autofocus placeholder="ownerName..." required >
                        
-                        @error('ownerName')
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
