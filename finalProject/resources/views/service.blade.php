@@ -27,7 +27,7 @@
         <p><a class="btn btn-lg btn-success" href="#" role="button">Start Now!!</a></p>
       </div>
 		<div>
-          <h1>our distinguishing feature</h1>
+          <h1 style="float: none; line-height: 55px; text-decoration-line: underline;"><b>Our distinguishing feature</b></h1>
       </div>
       <div class="row marketing">
         <div class="col-lg-6">
