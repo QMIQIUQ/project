@@ -1,62 +1,43 @@
-
 @extends('layouts.app2')
-@section('content') 
-<body>
+@section('content')
+<link rel="icon" href="../../../../favicon.ico">
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/editor.css" rel="stylesheet">
 
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              
-            </li>
-            <li class="nav-item">
-              
-            </li>
-            <li class="nav-item">
-              
-            </li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Servieces</h3>
+    <!-- Custom styles for this template -->
+    <link href="product.css" rel="stylesheet">
+
+
+  <body>
+
+
+
+    <div class="position-relative overflow-hidden p-3 p-md-6 m-md-3 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal" contenteditable="true" spellcheckker="false">Handphone broken??</h1>
+        <p class="lead font-weight-normal">No worries!! We have a solution for you!</p>
+        <a class="btn btn-success" href="#">Start Now!!</a>
       </div>
+  </div>
 
-      <div class="jumbotron" align="center">
-        <h1 class="display-3">Handphone broken??</h1>
-        <p class="lead">No worries!! We have a solution for you!</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Start Now!!</a></p>
-      </div>
-		<div>
-          <h1 style="float: none; line-height: 55px; text-decoration-line: underline;"><b>Our distinguishing feature</b></h1>
-      </div>
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Authorized Shop&nbsp;</h4>
-          <p>All the shop are Authorized one by one from our teams to ensure the best possible services</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <div class="d-md-flex flex-md-equal w-100 my-md-5 pl-md-3">
+      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Home Shipping</h2>
+          <p class="lead">No time? No worries, we got a pickup service and deliver back to you when the phone isrepaired!!</p>
         </div>
 
-        <div class="col-lg-6">
-          <h4>Pickup for you</h4>
-          <p>no time to repair shop?</p><div>No worries, we got a pickup service and deliver back to you when the phone is repaired!!<br><div><br></div></div><p></p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
       </div>
+      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5">Authorized Shop</h2>
+          <p class="lead">All shop are Authorized one by one from our teams to ensure the best possible services</p>
+        </div>
 
-      
+      </div>
+    </div>
 
-    </div> <!-- /container -->
-  
+  </body>
 
 </body>
 @endsection
