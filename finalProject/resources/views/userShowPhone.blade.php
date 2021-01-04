@@ -10,7 +10,7 @@
 
 <body id="subpage">
     <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-
+ 
 
 
     <div id="templatemo_wrapper">
@@ -48,10 +48,12 @@
                 <div>
                     <form action="{{ route('search.product') }}" method="post">
                         @csrf
-                        <input type="text" name="searchProduct" id="searchProduct">
-                        <button class="btn btn-info" type="submit">Search</button>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="searchProduct" id="searchProduct" placeholder="Search">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </div>
                     </form>
-
+                    {{-- end Search --}}
                     <script type="text/javascript">
                         var path = "{{ route('autocomplete') }}";
                         $('input.typeahead').typeahead({
