@@ -160,7 +160,7 @@ class PaymentController extends Controller
             //add update record for cart
             //$email='yangcheebeng@hotmail.com';
 	        //Notification::route('mail', $email)->notify(new \App\Notifications\orderPaid($email));
-            return Redirect::to('products');  //back to product page
+            return Redirect::to('userShowPhone');  //back to product page
 
         }
 
