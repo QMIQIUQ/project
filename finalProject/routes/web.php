@@ -52,6 +52,7 @@ Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->nam
 Route::get('/service', function () {
     return view('service');
 });
+//main page
 
 //search
 Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
