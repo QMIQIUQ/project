@@ -77,56 +77,9 @@ bgc2, .vLine, .hLine {
         </a>
   </div>
   <!-- Page Content -->
-<section class="py-5 text-center">
-    <div class="container"> 
-      <h2 class="text-center">Luckmoshy`s Services</h2>
-      <p class="text-muted mb-5 text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 mb-3">
-          <svg class="lnr text-primary services-icon">
-            <use xlink:href="#lnr-magic-wand"></use>
-          </svg>
-          <h6>Ex cupidatat eu</h6>
-          <p class="text-muted">Ex cupidatat eu officia consequat incididunt labore occaecat ut veniam labore et cillum id et.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-3">
-          <svg class="lnr text-primary services-icon">
-            <use xlink:href="#lnr-heart"></use>
-          </svg>
-          <h6>Tempor aute occaecat</h6>
-          <p class="text-muted">Tempor aute occaecat pariatur esse aute amet.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-3">
-          <svg class="lnr text-primary services-icon">
-            <use xlink:href="#lnr-rocket"></use>
-          </svg>
-          <h6>Voluptate ex irure</h6>
-          <p class="text-muted">Voluptate ex irure ipsum ipsum ullamco ipsum reprehenderit non ut mollit commodo.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-3">
-          <svg class="lnr text-primary services-icon">
-            <use xlink:href="#lnr-paperclip"></use>
-          </svg>
-          <h6>Tempor commodo</h6>
-          <p class="text-muted">Tempor commodo nostrud ex Lorem occaecat duis occaecat minim.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-3">
-          <svg class="lnr text-primary services-icon">
-            <use xlink:href="#lnr-screen"></use>
-          </svg>
-          <h6>Et fugiat sint occaecat</h6>
-          <p class="text-muted">Et fugiat sint occaecat voluptate incididunt anim nostrud ea cillum cillum consequat.</p>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-3">
-          <svg class="lnr text-primary services-icon">
-            <use xlink:href="#lnr-inbox"></use>
-          </svg>
-          <h6>Et labore tempor et</h6>
-          <p class="text-muted">Et labore tempor et adipisicing dolor.</p>
-        </div>
-      </div>
-    </div>
-</section>
+ 
+ 
+
 <section class="main">
 <div class="container mt-4">
   <h1 class="text-center mb-4 p-4 text-secondary">From The Blog</h1>

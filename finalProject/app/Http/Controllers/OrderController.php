@@ -15,12 +15,14 @@ class OrderController extends Controller
 
         $r=request(); 
         $address= DB::table('users')->where('id','=', Auth::id())->value('address');
+        
         $count=$r->amount;
         if($count==null||$count==0){
             Session::flash('fail',"Please Seclet item to Checkout");
             Return redirect()->route('show.Cart');
         }else{
             $addOrder=Order::create([
+            'quantity'=>$quantity,    
             'Address'=>$address,
             'amount'=>$r->amount,
             'paymentStatus'=>'pending',

@@ -53,7 +53,7 @@ Route::get('/service', function () {
     return view('service');
 });
 //main page
-
+Route::get('/random', [App\Http\Controllers\randomPhoneController::class, 'show'])->name('random');
 //search
 Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
 //auto complete search

@@ -29,7 +29,7 @@ class PhoneController extends Controller
         $r=request(); //step 3 get data from HTML
         $image=$r->file('product-image');   //step to upload image get the file input
         $image->move('images',$image->getClientOriginalName());   //images is the location                
-        $imageName=$image->getClientOriginalName(); 
+        $imageName=$image->getClientOriginalName();     
 
         $addCategory=Phone::create([    //step 3 bind data
             'id'=>$r->ID, //add on 
@@ -99,9 +99,11 @@ class PhoneController extends Controller
     public function showProductDetail($id){
        
         $products =Phone::all()->where('id',$id);
+        $random =Phone::where('id','!=',$id)->inRandomOrder()->take(4)->get();
         //select * from products where id='$id'
         
         return view('phonedetail')->with('products',$products)
+                                ->with('random',$random)
                                 ->with('categories',Category::all());
     }
 
