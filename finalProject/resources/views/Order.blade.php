@@ -1,15 +1,15 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 @section('content') 
 <div class="container">
 	    <div class="row">
 		<form   method="post" action="{!! URL::to('paypal') !!}" >
 			@csrf
-		    <table class="table ">
+		    <table class="table table-hover ">
 				
 		        <thead>
 		        <tr class="thead-dark">
-		            
-                    <th>Item</th>
+		            <th>ID</th>
+                    <th>Image</th>
 		            <th>Name</th>
                    
 		            <th>Quantity</th>
@@ -24,7 +24,7 @@
 				@endphp
                 @foreach($orders as $myorder)
 		            <tr>
-		                
+		                <td>{{$myorder->id}}</td>
                         <td><img src="{{ asset('images/') }}/{{$myorder->image}}" alt="" width="50"></td>
 		                <td style="max-width:300px">
 		                    <h6>{{$myorder->name}}</h6>		                   
@@ -50,9 +50,8 @@
                 <td>&nbsp;</td>
 		        <td>&nbsp;</td>                   
 		        <td>&nbsp;</td>
-				<td>&nbsp;</td>	
-				<input type="hidden" name="amount" value="RM{{ $total }}" >
-		        <td><input type="" name="amount" value="RM{{ $total }}" disabled></td>
+				<td>&nbsp;</td>
+		        <td><input type="hidden" name="amount" value="{{ $total }}"></td>
                 <td><input type="submit" name="paynow" value="Pay Now"></td>
 		    </tr>
 		</form>					

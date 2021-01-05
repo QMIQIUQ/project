@@ -170,4 +170,3 @@ class PaymentController extends Controller
     }
 
 }
-
