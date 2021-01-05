@@ -2,7 +2,7 @@
 @section('content') 
 <div class="container">
 	    <div class="row">
-		<form   method="post" action="" >
+		<form   method="post" action="{!! URL::to('paypal') !!}" >
 			@csrf
 		    <table class="table ">
 				
