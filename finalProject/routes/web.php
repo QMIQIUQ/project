@@ -51,6 +51,7 @@ Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->nam
 Route::get('/service', function () {
     return view('service');
 });
+//main page
 
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
