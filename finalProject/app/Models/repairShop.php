@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class repairShop extends Model
 {
     use HasFactory;
-    protected $fillable=['id','AddressID','Address','City','State','Country','ZIPcode'];
+    protected $fillable=['companyID','address','city','state','country','ZIPcode','ratingPoints','ratingUser'];
+
 }

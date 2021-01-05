@@ -48,10 +48,26 @@ Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'del
 Route::post('/createorder', [App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
 Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->name('my.order');
 
+//services
 Route::get('/service', function () {
     return view('service');
 });
 //main page
+
+//search
+Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
+//auto complete search
+Route::get('/search',[App\Http\Controllers\ProductController::class, 'index'])->name('search');
+Route::get('/autocomplete',[App\Http\Controllers\ProductController::class, 'autocomplete'])->name('autocomplete');
+
+//register RepairServices
+Route::get('/insertRepairServices', function () {
+    return view('insertRepairServices');
+});
+Route::post('/insertRepairServices/store', [App\Http\Controllers\CompanyController::class, 'store'])->name('insertRepairServices'); 
+Route::get('/registerStatus', function () {
+    return view('registerStatus');
+});
 
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');

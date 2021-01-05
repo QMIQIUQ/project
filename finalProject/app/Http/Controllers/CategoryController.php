@@ -34,7 +34,7 @@ class CategoryController extends Controller
         $image=$r->file('product-image'); 
         $image->move('images',$image->getClientOriginalName());               
         $imageName=$image->getClientOriginalName(); 
-        $addCategory=Category::create([
+        Category::create([
 
             'name'=>$r->name,
             'image'=>$imageName,

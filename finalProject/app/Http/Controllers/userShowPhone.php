@@ -18,7 +18,6 @@ class userShowPhone extends Controller
             ->select('phones.*')
             ->where('phones.CategoryID','=',request()->category)
             ->get();
-            
 
 
             $categoryNames=DB::table('categories')
@@ -37,6 +36,36 @@ class userShowPhone extends Controller
             'categoryName'=>$categoryNames,
         ]);
         
+    }
+
+    public function index()
+    {
+        return view('userShowPhone');
+    }
+  
+   
+    public function autocomplete(Request $request)
+    {
+        $data = Phone::select("name")
+                ->where("name","LIKE", '%'.$request->get('query').'%')
+                ->get();
+        return response()->json($data);
+    }
+    
+    public function search()
+    {
+        $categories=Category::all();
+        $categoryNames=null;
+        $r = request(); //retrive submited form data
+        $keyword = $r->searchProduct;
+        $products=Phone::where('phones.name', 'like', '%' . $keyword . '%')
+            ->orWhere('phones.description', 'like', '%' . $keyword . '%')
+            ->get();
+        return view('userShowPhone')->with([
+            'products'=>$products,
+            'categories'=>$categories,
+            'categoryName'=>$categoryNames,
+            ]);
     }
     
 }
