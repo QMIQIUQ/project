@@ -49,10 +49,10 @@ Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'del
 Route::post('/createorder', [App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
 Route::get('/Order', [App\Http\Controllers\OrderController::class, 'show'])->name('my.order');
 //rating
-Route::post('/insertRate/store', [App\Http\Controllers\PhoneController::class, 'store'])->name('addRate');
-Route::get('/showRate', [App\Http\Controllers\PhoneController::class, 'showRate'])->name('showRate');
-Route::get('/insertRate', [App\Http\Controllers\PhoneController::class, 'create'])->name('insertRate');
-Route::get('/deleteRate/{id}', [App\Http\Controllers\PhoneController::class, 'delete'])->name('deleteRate');
+Route::post('/insertRate/store', [App\Http\Controllers\ratingController::class, 'store'])->name('addRate');
+Route::get('/showRate', [App\Http\Controllers\ratingController::class, 'showRate'])->name('showRate');
+Route::get('/insertRate', [App\Http\Controllers\ratingController::class, 'create'])->name('insertRate');
+Route::get('/deleteRate/{id}', [App\Http\Controllers\ratingController::class, 'delete'])->name('deleteRate');
 //services
 Route::get('/service', function () {
     return view('service');

@@ -63,7 +63,30 @@
             
             <div class="cleaner"></div>
         </form>   
-       
+     
+    	<form method="post" action="">
+     
+				<!-- Add Comment -->
+				<div class="card my-5">
+					<h5 class="card-header">Add Comment</h5>
+					<div class="card-body">
+					
+						@csrf
+						<textarea name="comment" class="form-control"></textarea>
+						<input type="submit" class="btn btn-dark mt-2" />
+					</div>
+				</div>
+        </form>
+      
+        <div class="card my-4">
+					<h5 class="card-header">Comments <span class="badge badge-dark"></span></h5>
+					<div class="card-body">
+						
+								
+							
+						
+					</div>
+				</div>
                 
                 
        
