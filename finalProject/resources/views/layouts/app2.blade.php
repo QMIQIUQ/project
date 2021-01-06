@@ -245,55 +245,43 @@
   <div class="container">
     <div class="row row-30">
       <div class="col-md-4 col-xl-5">
-        <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light"
-              src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37"
-              srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+        <div class="pr-xl-4">
           <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business
             consulting, and marketing.</p>
           <!-- Rights-->
-          <p class="rights"><span>©  </span><span
-              class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights
-              Reserved.</span></p>
+         
         </div>
       </div>
       <div class="col-md-4">
         <h5>Contacts</h5>
         <dl class="contact-list">
           <dt>Address:</dt>
-          <dd>798 South Park Avenue, Jaipur, Raj</dd>
+          <dd> PTD 64888, Jalan Selatan Utama km 15, Taman Perusahaan Ringan Pulai, 81300 Skudai, Johor</dd>
         </dl>
         <dl class="contact-list">
           <dt>email:</dt>
-          <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+          <dd><a href="mailto:#">hongkai882@gmail.com</a></dd>
         </dl>
-        <dl class="contact-list">
+        <!-- <dl class="contact-list">
           <dt>phones:</dt>
           <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a href="tel:#">https://karosearch.com</a>
           </dd>
-        </dl>
+        </dl> -->
       </div>
       <div class="col-md-4 col-xl-3">
         <h5>Links</h5>
         <ul class="nav-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contacts</a></li>
-          <li><a href="#">Pricing</a></li>
-        </ul>
+          <li> <a class="dropdown-item" href="{{url('/userShowPhone')}}">Show Procuct </a></li>
+          <li><a class="dropdown-item" href="{{url('/showPhone')}}">Your Product</a></li>
+          <li><a class="dropdown-item" href="{{url('/showmyCart')}}">MyCart</a></li>
+         </ul>
+         <h6>Secure Payment:</h6>
+         <img src="images/payment.png" alt="" width="200" height="40"
+              srcset="images/agency/logo-retina-inverse-280x74.png 2x">
       </div>
     </div>
   </div>
-  <div class="row no-gutters social-container">
-    <div class="col"><a class="social-inner" href="#"><span
-          class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-    <div class="col"><a class="social-inner" href="#"><span
-          class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a>
-    </div>
-    <div class="col"><a class="social-inner" href="#"><span
-          class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
-  </div>
+  
 </footer>
 
 </html>

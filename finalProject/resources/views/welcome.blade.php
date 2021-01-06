@@ -1,7 +1,7 @@
 <style>
     .carousel-item {
-  height: 100vh;
-  min-height: 200px;
+  height: 80vh;
+  min-height: 100px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -78,19 +78,16 @@ a:visited {
     </ol>
     <div class="carousel-inner" role="listbox">
       <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" ><img src="{{ asset('images/banner.png')}} ">
+      <div class="carousel-item active" ><img src="{{ asset('images/banner2.jpg')}} " width="100%">
         
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('')">
+      <div class="carousel-item" ><img src="{{ asset('images/banner3.png')}} " width="100%">
         
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('')">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Third Slide</h2>
-          <p class="lead">This is a description for the third slide.</p>
-        </div>
+      <div class="carousel-item" ><img src="{{ asset('images/banner.png')}} ">
+        
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
