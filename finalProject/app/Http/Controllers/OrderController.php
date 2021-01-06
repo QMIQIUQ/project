@@ -15,11 +15,7 @@ class OrderController extends Controller
 
         $r=request(); 
         $address= DB::table('users')->where('id','=', Auth::id())->value('address');
-        $quantity=DB::table('orders')
-        ->leftjoin('carts', 'orders.id', '=', 'carts.orderID')
-        ->select('carts.*','orders.*','carts.quantity as qty')
-        ->where('orders.userID','=',Auth::id())
-        ->get();
+        $quantity = $r->quantity;
         $count=$r->amount;
         if($count==null||$count==0){
             Session::flash('fail',"Please Seclet item to Checkout");
