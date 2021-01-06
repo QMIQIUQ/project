@@ -30,7 +30,7 @@ class PhoneController extends Controller
         $image=$r->file('product-image');   //step to upload image get the file input
         $image->move('images',$image->getClientOriginalName());   //images is the location                
         $imageName=$image->getClientOriginalName();     
-
+        $username= DB::table('users')->where('id','=', Auth::id())->value('name');
         $addCategory=Phone::create([    //step 3 bind data
             'id'=>$r->ID, //add on 
             'CategoryID'=>$r->category,
@@ -39,6 +39,7 @@ class PhoneController extends Controller
             'image'=>$imageName,
             'quantity'=>$r->quantity,
             'price'=>$r->price,
+            'username'=>$username,
             'userID'=>Auth::id(),
             
         ]);

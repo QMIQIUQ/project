@@ -22,6 +22,7 @@ class CreatePhonesTable extends Migration
             $table->integer('quantity')->unsigned();
             $table->double('price',8,2);
             $table->integer('userID');
+            $table->string('username');
             $table->timestamps();
         });
     }

@@ -84,12 +84,13 @@
 
                 @foreach($products as $product)
                 <div class="col col_14 product_gallery">
-
+                <p class="username">Seller:{{$product->username}}</p>
                     <a href="{{ route('product.detail', ['id' => $product->id]) }}"><img
                             src="{{ asset('images/') }}/{{$product->image}}" alt="" width="50%"></a>
                     <h3>{{$product->name}}</h3>
                     <p class="product_price">RM{{$product->price}}</p>
-                    <a href="{{ route('product.detail', ['id' => $product->id]) }}" class="add_to_cart">Add to Cart</a>
+                   
+                   
                 </div>
 
 
@@ -97,17 +98,18 @@
 
                 <div class="cleaner h50"></div>
 
-
+                {{ $products->links('pagination::bootstrap-4')}}
                 <div class="cleaner"></div>
             </div> <!-- END of content -->
 
-
-
+           
             <div class="cleaner"></div>
+           
         </div> <!-- END of main -->
+      
 
 
-
+      
     </div>
 
 </body>

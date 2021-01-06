@@ -31,8 +31,8 @@
                         <td>RM{{$product->price}}</td>
                     </tr>
                     <tr>
-                        <td height="30">Manufacturer:</td>
-                        <td>OEM</td>
+                        <td height="30">Seller:</td>
+                        <td>{{$product->username}}</td>
                     </tr>
                     <tr><td height="50">Quantity</td><td><input type="number" name="quantity" id="qty" value="1" min="1" max="{{$product->quantity}}"></td></tr>
                 </table>

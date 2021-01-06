@@ -11,22 +11,22 @@ class userShowPhone extends Controller
 {   
     
     public function show(){
-        
+   
         $categories=Category::all();
         if (request()->category) {
             $products=DB::table('phones')
             ->select('phones.*')
             ->where('phones.CategoryID','=',request()->category)
-            ->get();
+            ->paginate(9);
 
 
             $categoryNames=DB::table('categories')
             ->select('categories.*')
             ->where('categories.id','=',request()->category)
-            ->get();
+            ->paginate(9);
             
         }else {
-            $products=Phone::all();
+            $products=Phone::paginate(9);
             $categoryNames=null;
         }
         
@@ -60,7 +60,7 @@ class userShowPhone extends Controller
         $keyword = $r->searchProduct;
         $products=Phone::where('phones.name', 'like', '%' . $keyword . '%')
             ->orWhere('phones.description', 'like', '%' . $keyword . '%')
-            ->get();
+            ->paginate(9);
         return view('userShowPhone')->with([
             'products'=>$products,
             'categories'=>$categories,

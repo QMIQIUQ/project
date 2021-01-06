@@ -74,13 +74,15 @@ body {
 }
 .sidebar_menu li {
 	margin: 0;
-	padding: 2px 0 3px 15px;
-	background: url(../images/templatemo_list_01.png) no-repeat scroll 0 8px;
-	border-bottom: 1px dotted #ccc
+	text-align: center;
+	padding: 10px 0 10px 15px;
+
+	border-bottom: 1px dotted rgb(119, 119, 119)
 }
 
 .sidebar_menu li a {
 	font-size: 20px;
+	color: rgb(107, 107, 107);
 }
 
 #cont h2 { font-size: 24px; padding-bottom: 10px; border-bottom: 1px solid #ccc; margin-bottom: 20px }
@@ -98,10 +100,14 @@ table td { border-bottom: 1px solid #ccc }
 
 .product_gallery h3 {
 	font-size: 23px;
-	color: rgb(107, 107, 107);
+	color: rgb(57, 56, 78);
 	font-weight: 00;
 }
-
+.product_gallery .username {
+	font-size: 20px;
+	color: rgb(34, 33, 54);
+	font-weight: 00;
+}
 .product_gallery .product_price {
 	color: #000;
 	font-weight: 700
@@ -113,7 +119,7 @@ table td { border-bottom: 1px solid #ccc }
 	background: url(../images/cart.png) no-repeat right center	
 }
 
-.col { float: left; margin-right: 20px }
+.col { float: left; margin-right: 25px }
 
 .col_14 { width: 200px }
 

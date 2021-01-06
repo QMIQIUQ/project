@@ -38,6 +38,34 @@ bgc2, .vLine, .hLine {
     font-size: 60px;
     margin-left: 2rem;
 }
+.featured-section .products {
+   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 60px 30px;
+  }
+.button-container {
+  margin: 80px 0;
+}
+.button {
+  border: 1px solid #212121;
+  padding: 12px 40px;
+}
+a {
+  text-decoration: none;
+  color: #212121;
+}
+
+a:visited {
+  color: #212121;
+}
+
+.button:hover {
+  color: #e9e9e9;
+  background: #212121;
+}
+
+ 
 </style>
 
 @extends('layouts.app2')
@@ -77,7 +105,31 @@ bgc2, .vLine, .hLine {
         </a>
   </div>
   <!-- Page Content -->
- 
+  <div class="featured-section">
+
+<div class="container">
+    
+
+    <div class="products text-center">
+      
+        @foreach ($products as $product)
+            <div class="product">
+                <a href="{{ route('product.detail', ['id' => $product->id]) }}"><img src="{{ asset('images/') }}/{{$product->image}}" alt="product" width="150"></a>
+                <a href="{{ route('product.detail', ['id' => $product->id]) }}"><div class="product-name">{{ $product->name }}</div></a>
+                <div class="product-price" >RM:{{ $product->price }}</div>
+            </div>
+        @endforeach
+
+    </div> <!-- end products -->
+
+    <div class="text-center button-container">
+        <a href="{{ route('userShowPhone') }}" class="button">View more products</a>
+    </div>
+
+</div> <!-- end container -->
+
+</div> <!-- end featured-section -->
+
  
 
 <section class="main">

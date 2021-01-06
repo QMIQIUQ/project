@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Phone extends Model
 {
     use HasFactory;
-    protected $fillable=['userID','CategoryID','name','description','image','quantity','price'];
+    protected $fillable=['userID','CategoryID','name','description','image','quantity','price','username'];
     
     
     public function category(){

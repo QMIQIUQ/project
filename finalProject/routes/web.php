@@ -40,6 +40,7 @@ Route::post('/updatePhone', [App\Http\Controllers\PhoneController::class, 'updat
 //phone(user)
 Route::get('/userShowPhone', [App\Http\Controllers\userShowPhone::class, 'show'])->name('userShowPhone');
 Route::get('/phone_detail/{id}', [App\Http\Controllers\PhoneController::class, 'showProductDetail'])->name('product.detail');
+Route::get('/random', [App\Http\Controllers\randomPhoneController::class, 'show'])->name('random');
 
 Route::post('/addToCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart'); // when user click on add to cart in product detail, id and quantity add to cart
 Route::get('/showmyCart', [App\Http\Controllers\CartController::class, 'showMyCart'])->name('show.Cart');  //user view all items added to cart
@@ -53,7 +54,7 @@ Route::get('/service', function () {
     return view('service');
 });
 //main page
-Route::get('/random', [App\Http\Controllers\randomPhoneController::class, 'show'])->name('random');
+Route::get('/', [App\Http\Controllers\welcomeController::class, 'index'])->name('welcome');
 //search
 Route::post('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
 //auto complete search
