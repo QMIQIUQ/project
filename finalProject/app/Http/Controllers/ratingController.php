@@ -13,14 +13,15 @@ class ratingController extends Controller
         return view('insertRate') ->with('phones',Phone::id());
 
     }
-    public function store(){    //step 2 
-        $r=request(); //step 3 get data from HTML
+    
+    public function store(){   
+        $r=request(); 
        
         $username= DB::table('users')->where('id','=', Auth::id())->value('name');
-        $addRate=rating::create([    //step 3 bind data
-            'id'=>$r->ID, //add on 
+        $addRate=rating::create([   
+            'id'=>$r->ID,  
             'phoneID'=>$phoneID,
-            'comment'=>$r->comment, //fullname from HTML
+            'comment'=>$r->comment,
             'ratingPoints'=>$r->ratingPoints,
             'username'=>$username,
             'userID'=>Auth::id(),

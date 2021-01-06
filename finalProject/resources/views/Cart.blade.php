@@ -56,7 +56,7 @@
 		            <td>&nbsp;</td>                   
                     <td>Total</td>
                     <input type="hidden" name="amount" id="amount" >
-		            <td><input type="text" name="amount" id="amount" disabled></td>
+		            <td><input type="text" name="amount" id="amount1" disabled></td>
                 <td><input type="submit" name="checkout" value="Checkout"></td>
 		        </tr>
 				</form>
@@ -88,6 +88,7 @@
                }
            }
            document.getElementById('amount').value=totalP.toFixed(2);
+           document.getElementById('amount1').value=totalP.toFixed(2);
        }
    
        

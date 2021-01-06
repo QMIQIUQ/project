@@ -103,12 +103,11 @@
           <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/service')}}">Services</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{{url('/userShowPhone')}}">Shop</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" style="visibility:collapse;" href="{{url('/service')}}">Services</a>
+        </li>
       </ul>
     </div>
 
@@ -166,15 +165,15 @@
           <a class="dropdown-item" href="{{url('/showPhone')}}">
             Your Product
           </a>
-          
+<!--           
           @if ((Auth::user()->services == 0)||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
-          <div class="dropdown-header">Join our team!</div>
+          <div class="dropdown-header" >Join our team!</div>
           <a class="dropdown-item" href="{{url('/insertRepairServices')}}">
             Register Repair Services
           </a>
-          @endif
-
+          @endif -->
+<!-- 
           @if ((Auth::user()->services == 1)||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header">Join our team!</div>
@@ -192,7 +191,7 @@
           <a class="dropdown-item" href="{{url('/#')}}">
             Add Shops
           </a>
-          @endif
+          @endif -->
 
           @if (Auth::user()->admin == 1)
 
@@ -205,7 +204,7 @@
           <a class="dropdown-item" href="{{url('/showCategory')}}">
             Show Procuct Category
           </a>
-          <a class="dropdown-item" href="{{url('/#')}}">
+          <a class="dropdown-item"style="visibility:collapse;" href="{{url('/#')}}">
             Show Register Repair Services
           </a>
         </div>

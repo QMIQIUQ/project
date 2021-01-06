@@ -18,7 +18,6 @@ class CartController extends Controller
     }
 
     public function add(){ 
-
         $r=request(); 
         $addCategory=Cart::create([    
             
