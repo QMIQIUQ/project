@@ -9,5 +9,8 @@ class repairShop extends Model
 {
     use HasFactory;
     protected $fillable=['companyID','address','city','state','country','ZIPcode','ratingPoints','ratingUser'];
-
+  
+    public function insertCompany(){
+        return $this->belongsTo('App\Models\insertCompany');
+    }
 }

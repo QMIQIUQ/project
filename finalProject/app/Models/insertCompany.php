@@ -9,5 +9,8 @@ class insertCompany extends Model
 {
     use HasFactory;
     protected $fillable=['userID','name','description','address','Tel','ownerName','image'];
-
+    
+    public function repairShop(){
+        return $this->hasMany('App\Models\repairShop');
+    }
 }

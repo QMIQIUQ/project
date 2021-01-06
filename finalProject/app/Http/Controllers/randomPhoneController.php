@@ -12,7 +12,7 @@ class randomPhoneController extends Controller
 {
     public function show()
     {
-        $products = Phone::take(8)->inRandomOrder()->get();
+        $products = Phone::take(4)->inRandomOrder()->get();
 
         return view('random')->with('products',$products);
     }

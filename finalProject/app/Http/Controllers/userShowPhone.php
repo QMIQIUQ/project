@@ -23,7 +23,7 @@ class userShowPhone extends Controller
             $categoryNames=DB::table('categories')
             ->select('categories.*')
             ->where('categories.id','=',request()->category)
-            ->paginate(9);
+            ->get();
             
         }else {
             $products=Phone::paginate(9);

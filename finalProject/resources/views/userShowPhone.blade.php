@@ -74,28 +74,32 @@
                 <h2>{{$CName->name}}</h2>
                 @endforeach
                 @endif
-
-
-
-
-
-
-
-
-                @foreach($products as $product)
-                <div class="col col_14 product_gallery">
+                
+                <div class="row row-cols-1 row-cols-md-2">        
+                @foreach($products as $product) 
+               
+                <div class="col mb-4 product_gallery">
+               
+                <div class="card-group">
+                    
+                <div class="card-body">
                 <p class="username">Seller:{{$product->username}}</p>
-                    <a href="{{ route('product.detail', ['id' => $product->id]) }}"><img
-                            src="{{ asset('images/') }}/{{$product->image}}" alt="" width="50%"></a>
-                    <h3>{{$product->name}}</h3>
-                    <p class="product_price">RM{{$product->price}}</p>
+                     <a href="{{ route('product.detail', ['id' => $product->id]) }}">
+                    <img class="" src="{{ asset('images/') }}/{{$product->image}}"  alt="" width="100px"></a>
                    
-                   
+                    <h3 class="card-text">{{$product->name}}</h3>
+                <p class="card-text product_price">RM{{$product->price}}</p>
                 </div>
+                </div>
+              
+                </div> 
+                @endforeach         
+                </div>         
+                  
 
 
-                @endforeach
 
+     
                 <div class="cleaner h50"></div>
 
                 {{ $products->links('pagination::bootstrap-4')}}
