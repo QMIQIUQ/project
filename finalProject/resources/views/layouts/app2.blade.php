@@ -155,6 +155,9 @@
           <a class="dropdown-item" href="{{url('/showmyCart')}}">
             MyCart
           </a>
+          <a class="dropdown-item" href="{{url('/Order')}}">
+            MyOrder
+          </a>
           <div class="dropdown-divider"></div>
           <div class="dropdown-header">Sell Product</div>
           

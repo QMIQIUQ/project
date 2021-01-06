@@ -20,7 +20,8 @@ use PayPal\Rest\ApiContext;
 use Redirect;
 use Session;
 use URL;
-//use Notification;
+use Auth;
+use Notification;
 
 
 class PaymentController extends Controller
@@ -157,11 +158,14 @@ class PaymentController extends Controller
         if ($result->getState() == 'approved') {
 
             Session::put('success', 'Payment success');
-            //add update record for cart
-            //$email='yangcheebeng@hotmail.com';
-	        //Notification::route('mail', $email)->notify(new \App\Notifications\orderPaid($email));
-            return Redirect::to('userShowPhone');  //back to product page
 
+
+            //add update record for cart
+            $email = Auth::user()->email;
+
+            Notification::route('mail', $email)->notify(new \App\Notifications\orderPaid($email));
+            return Redirect::to('userShowPhone');  //back to product page
+            
         }
 
         Session::put('error', 'Payment failed');
