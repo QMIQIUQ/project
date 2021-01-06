@@ -37,6 +37,7 @@
 		                    <h6>{{$cart->name}}</h6>	                    
 		                </td>
                         <td>{{$cart->cartQty}}</td>
+                        <input type="hidden" name="quantity" id="quantity" value="{{$cart->cartQty}}">
                         @php
                         $subtotal=$cart->price*$cart->cartQty;
                         @endphp
@@ -55,6 +56,7 @@
                     <td>&nbsp;</td>
 		            <td>&nbsp;</td>                   
                     <td>Total</td>
+                    
                     <input type="hidden" name="amount" id="amount" >
 		            <td><input type="text" name="amount" id="amount1" disabled></td>
                 <td><input type="submit" name="checkout" value="Checkout"></td>
