@@ -53,17 +53,7 @@
                             <button class="btn btn-success" type="submit">Search</button>
                         </div>
                     </form>
-                    {{-- end Search --}}
-                    <script type="text/javascript">
-                        var path = "{{ route('autocomplete') }}";
-                        $('input.typeahead').typeahead({
-                            source:  function (query, process) {
-                            return $.get(path, { query: query }, function (data) {
-                             return process(data);
-                                });
-                            }
-                        });
-                    </script>
+                    
                 </div>
 
                 @if($categoryName==null)

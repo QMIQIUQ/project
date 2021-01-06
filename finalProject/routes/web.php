@@ -61,9 +61,6 @@ Route::get('/service', function () {
 Route::get('/', [App\Http\Controllers\welcomeController::class, 'index'])->name('welcome');
 //search
 Route::get('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
-//auto complete search
-Route::get('/search',[App\Http\Controllers\ProductController::class, 'index'])->name('search');
-Route::get('/autocomplete',[App\Http\Controllers\ProductController::class, 'autocomplete'])->name('autocomplete');
 
 //register RepairServices
 Route::get('/insertRepairServices', function () {

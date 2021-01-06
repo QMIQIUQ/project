@@ -13,15 +13,14 @@ class ratingController extends Controller
         return view('insertRate') ->with('phones',Phone::id());
 
     }
-    
     public function store(){   
         $r=request(); 
        
         $username= DB::table('users')->where('id','=', Auth::id())->value('name');
-        $addRate=rating::create([   
-            'id'=>$r->ID,  
+        $addRate=rating::create([    
+          
             'phoneID'=>$phoneID,
-            'comment'=>$r->comment,
+            'comment'=>$r->comment, 
             'ratingPoints'=>$r->ratingPoints,
             'username'=>$username,
             'userID'=>Auth::id(),
@@ -42,9 +41,9 @@ class ratingController extends Controller
         $products=Phone::where('phones.userID','=',Auth::id())
         ->paginate(5)
         ;
-
         return view('showRate')->with('products',$products);
     }
+
     public function delete($id){
         $products=Phone::find($id);
         $products->delete();
