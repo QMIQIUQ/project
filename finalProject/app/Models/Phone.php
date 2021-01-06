@@ -14,4 +14,7 @@ class Phone extends Model
     public function category(){
         return $this->belongsTo('App\Models\Category');
     }
+    public function Rating(){
+        return $this->hasMany('App\Models\rating');
+    }
 }
