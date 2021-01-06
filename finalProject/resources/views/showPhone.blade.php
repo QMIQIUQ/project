@@ -32,7 +32,7 @@
 					
 					<th>Image</th>
 					<th>Name</th>
-					<th>Category</th>
+					<th>CategoryID</th>
 					<th>Quantity</th>
 					<th>Price</th>
 					<th>Action</th>
@@ -49,7 +49,7 @@
 							{{$product->description}}
 						</em>
 					</td>
-					<td>{{$product->categoryID}}</td>
+					<td>{{$product->CategoryID}}</td>
 					<td>{{$product->quantity}}</td>
 					<td>{{$product->price}}</td>
 					<td>
