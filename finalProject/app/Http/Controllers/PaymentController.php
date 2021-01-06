@@ -157,8 +157,8 @@ class PaymentController extends Controller
 
         if ($result->getState() == 'approved') {
 
-            Session::put('success', 'Payment success');
-
+            Session::flash('success', 'Payment success');
+            
 
             //add update record for cart
             $email = Auth::user()->email;
@@ -168,7 +168,7 @@ class PaymentController extends Controller
             
         }
 
-        Session::put('error', 'Payment failed');
+        Session::flash('error', 'Payment failed');
         return Redirect::to('/'); 
 
     }
