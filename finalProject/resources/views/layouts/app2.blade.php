@@ -232,14 +232,6 @@
 
   </main>
 
-
-
-  <!-- 3. AddChat JS -->
-  <!-- Modern browsers -->
-  <script type="module" src=" {{ asset('assets/addchat/js/addchat.min.js')}} "></script>
-  <!-- Fallback support for Older browsers -->
-  <script nomodule src=" {{ asset('assets/addchat/js/addchat-legacy.min.js')}} "></script>
-
 </body>
 
 
