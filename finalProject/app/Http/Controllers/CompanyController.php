@@ -23,9 +23,6 @@ class CompanyController extends Controller
     }
 
     public function store(){    
-        
-
-
         $r=request(); 
         $user = User::find(Auth::id());  
         $image=$r->file('product-image'); 
@@ -43,8 +40,8 @@ class CompanyController extends Controller
         $user->services=1;
         $user->save();
 
-        Session::flash('success',"Category create succesful!");
-        Return view('registerStatus');
+        Session::flash('success',"Register succesful!");
+        return redirect()->to('/registerStatus');
     }
 
 
