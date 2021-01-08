@@ -46,4 +46,11 @@ class CompanyController extends Controller
         Session::flash('success',"Category create succesful!");
         Return view('registerStatus');
     }
+
+
+    public function show(){
+        $company=insertCompany::all();//instead SQL select * from categories
+        return view('showCompanyRequest')->with('company',$company);
+    }
+
 }

@@ -21,6 +21,7 @@ class CreateRepairShopsTable extends Migration
             $table->string('state');
             $table->string('country');
             $table->string('ZIPcode');
+            $table->string('phoneNumber');
             $table->integer('ratingPoints');
             $table->integer('ratingUser');
             $table->timestamps();

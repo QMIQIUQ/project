@@ -207,7 +207,7 @@
           <a class="dropdown-item" href="{{url('/showCategory')}}">
             Show Procuct Category
           </a>
-          <a class="dropdown-item" href="{{url('/#')}}">
+          <a class="dropdown-item" href="{{url('/showCompanyRegister')}}">
             Show Register Repair Services
           </a>
         </div>
