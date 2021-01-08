@@ -46,7 +46,7 @@
             <div id="cont">
                 {{-- search --}}
                 <div>
-                    <form action="{{ route('search.product') }}" method="post">
+                    <form action="{{ route('search.product') }}" method="Get">
                         @csrf
                         <div class="input-group">
                             <input type="text" class="form-control" name="searchProduct" id="searchProduct" placeholder="Search">
