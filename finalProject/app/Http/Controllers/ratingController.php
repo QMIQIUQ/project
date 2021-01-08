@@ -35,7 +35,7 @@ class ratingController extends Controller
     }
 
     public function showRate(){
-        $carts=DB::table('ratings')
+        $ratings=DB::table('ratings')
         ->leftjoin('phones', 'phones.id', '=', 'ratings.ProductID')
         ->where('ratings.userID','=',Auth::id())
         ->get();

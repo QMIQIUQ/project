@@ -44,7 +44,7 @@
             </div> <!-- END of sidebar -->
 
             <div id="cont">
-                {{-- search --}}
+               
                 <div>
                     <form action="{{ route('search.product') }}" method="post">
                         @csrf
@@ -53,7 +53,7 @@
                             <button class="btn btn-success" type="submit">Search</button>
                         </div>
                     </form>
-                    
+                  
                 </div>
 
                 @if($categoryName==null)
