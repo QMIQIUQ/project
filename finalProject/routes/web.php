@@ -72,6 +72,12 @@ Route::get('/registerStatus', function () {
 });
 Route::get('/showCompanyRegister', [App\Http\Controllers\CompanyController::class, 'show'])->name('showRegisterCompany');
 
+Route::post('/insertrepairShop/store', [App\Http\Controllers\ShopController::class, 'store'])->name('addShop');
+Route::get('/showrepairShop', [App\Http\Controllers\ShopController::class, 'showShop'])->name('showShop');
+Route::get('/insertrepairShop', [App\Http\Controllers\ShopController::class, 'create'])->name('insertShop');
+Route::get('/editrepairShop/{id}', [App\Http\Controllers\ShopController::class, 'edit'])->name('editShop');
+Route::get('/deleterepairShop/{id}', [App\Http\Controllers\ShopController::class, 'delete'])->name('deleteShop');
+Route::post('/updaterepairShop', [App\Http\Controllers\ShopController::class, 'update'])->name('updateShop');
 
 
 //paypal
