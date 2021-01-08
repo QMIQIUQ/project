@@ -49,7 +49,9 @@ class CompanyController extends Controller
 
 
     public function show(){
-        $company=insertCompany::all();//instead SQL select * from categories
+        $company=insertCompany::leftjoin('users','userID','=','users.id')
+        ->Select('insert_companies.*','users.name as userName')
+        ->get();;
         return view('showCompanyRequest')->with('company',$company);
     }
 

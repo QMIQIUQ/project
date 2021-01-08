@@ -27,7 +27,11 @@
         <table class="table table-hover table-striped">
         <tr class="thead-dark" >
             <th>Image</th>
-            <th>Name</th>
+            <th>Company Name</th>
+            <th>Company Address</th>
+            <th>Company Tel</th>
+            <th>Company Owner Name</th>
+            <th>User Name</th>
             <th>Action</th>
         </tr>
 
@@ -36,7 +40,11 @@
         <tr>
             <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px"></td>
             <td>{{$category->name}}</td>
-            <td><a href="{{ route('deleteCategory', ['id' => $category->id]) }}" class="btn btn-danger">Delete</a></td>
+            <td>{{$category->address}}</td>
+            <td>{{$category->Tel}}</td>
+            <td>{{$category->ownerName}}</td>
+            <td>{{$category->userName}}</td>
+            <td><a href="" class="btn btn-danger">Delete</a></td>
         </tr>
         @endforeach
     </table>
