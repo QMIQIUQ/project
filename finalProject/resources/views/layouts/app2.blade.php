@@ -106,7 +106,7 @@
           <a class="nav-link" href="{{url('/userShowPhone')}}">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="visibility:collapse;" href="{{url('/service')}}">Services</a>
+          <a class="nav-link" href="{{url('/service')}}">Services</a>
         </li>
       </ul>
     </div>
@@ -168,7 +168,7 @@
           <a class="dropdown-item" href="{{url('/showPhone')}}">
             Your Product
           </a>
-           
+          
           @if ((Auth::user()->services == 0)||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header" >Join our team!</div>
@@ -177,7 +177,7 @@
           </a>
           @endif 
 
-          @if ((Auth::user()->services == 1)||Auth::user()->admin == 1)
+          @if ((Auth::user()->services == 1&&Auth::user()->admin == 0)||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header">Join our team!</div>
           <a class="dropdown-item" href="{{url('/registerStatus')}}">

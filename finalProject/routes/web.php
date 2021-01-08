@@ -60,7 +60,7 @@ Route::get('/service', function () {
 //main page
 Route::get('/', [App\Http\Controllers\welcomeController::class, 'index'])->name('welcome');
 //search
-Route::get('/searchproduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
+Route::get('/searchProduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
 
 //register RepairServices
 Route::get('/insertRepairServices', function () {
