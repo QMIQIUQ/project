@@ -32,7 +32,7 @@
         </tr>
 
 
-        @foreach($categories as $category)
+        @foreach($company as $category)
         <tr>
             <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px"></td>
             <td>{{$category->name}}</td>

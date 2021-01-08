@@ -70,6 +70,9 @@ Route::post('/insertRepairServices/store', [App\Http\Controllers\CompanyControll
 Route::get('/registerStatus', function () {
     return view('registerStatus');
 });
+Route::get('/showCompanyRegister', [App\Http\Controllers\CompanyController::class, 'show'])->name('showRegisterCompany');
+
+
 
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
