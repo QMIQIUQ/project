@@ -28,6 +28,7 @@
         <tr class="thead-dark" >
             <th>Image</th>
             <th>Company Name</th>
+            <th>Company Description</th>
             <th>Company Address</th>
             <th>Company Tel</th>
             <th>Company Owner Name</th>
@@ -37,15 +38,19 @@
 
 
         @foreach($company as $category)
+        @if($category->userAdmin == 0)
         <tr>
             <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px"></td>
             <td>{{$category->name}}</td>
+            <td>{{$category->description}}</td>
             <td>{{$category->address}}</td>
             <td>{{$category->Tel}}</td>
             <td>{{$category->ownerName}}</td>
             <td>{{$category->userName}}</td>
-            <td><a href="" class="btn btn-danger">Delete</a></td>
+            <td><a href="" class="btn btn-success">Approve</a> <br>
+                <a href="" class="btn btn-danger">Reject</a></td>
         </tr>
+        @endif
         @endforeach
     </table>
 		
