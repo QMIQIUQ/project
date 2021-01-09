@@ -8,7 +8,7 @@
 
 @endif
 
-@elseif (Auth::user()->admin == 1||Auth::user()->admin == 2)
+@elseif (Auth::user()->admin == 0||Auth::user()->admin == 1)
 
 
 
@@ -31,23 +31,24 @@
                         
                     </div>
                     <div class="form-group">
-                    <label for="company" class="text-info">Category</label><br>
-                    <select name= "company" id= "company" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ old('company') }}" required autocomplete="company" autofocus placeholder="Search..." required >
-                   
-                        @foreach($insert_companies as $company)
-                            <option value="{{ $company->id }}">{{ $company->name }}</option>
-                        @endforeach
-                    </select> 
-                    @error('company')
+                    <label for="company" class="text-info">Company</label><br>
+                    @foreach($companyID as $company)
+                    <input type="hidden" id="company" name="company" value="{{ $company->id }} " readonly>{{ $company->name }}
+                    @endforeach
+                    </div>
+                    <div class="form-group">
+                         <label for="name" class="text-info">Name</label><br>
+                        <textarea rows="3" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Shop name..." required ></textarea>
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                         <label for="description" class="text-info">Product Description</label><br>
-                        <textarea rows="4" name="description" id="description" class="form-control  @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Product description..." required ></textarea>
-                        @error('description')
+                         <label for="address" class="text-info">Address</label><br>
+                        <textarea rows="3" name="address" id="address" class="form-control  @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus placeholder="Address..." required ></textarea>
+                        @error('address')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -55,38 +56,54 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="quantity" class="text-info">Quantity</label><br>
-                        <input type="number" name="quantity" id="quantity" class="form-control  @error('quantity') is-invalid @enderror" name="quantity" value="{{ old('quantity') }}" required autocomplete="quantity" autofocus placeholder="Search..." required >
+                        <label for="city" class="text-info">City</label><br>
+                        <input type="text" name="city" id="city" class="form-control  @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus placeholder="City..." required >
                        
-                        @error('quantity')
+                        @error('city')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="price" class="text-info">Price</label><br>
-                        <input type="number" name="price" id="price" class="form-control  @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus placeholder="Search..." required >
+                        <label for="state" class="text-info">State</label><br>
+                        <input type="text" name="state" id="state" class="form-control  @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" required autocomplete="state" autofocus placeholder="state..." required >
                        
-                        @error('price')
+                        @error('state')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                    </div> 
+                    </div>
                     <div class="form-group">
-                        <label for="image" class="text-info">Image</label><br>
-
-                        <div>
-                            <img src="{{ asset('images/image.png')}}" onclick="triggerClick()" id="profileDisplay">
-                            <input name="product-image" type="file" id="image" onchange="displayImage(this)"
-                                style="display: none;" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Category Name" required >
-                                @error('name')
+                        <label for="country" class="text-info">Country</label><br>
+                        <input type="text" name="country" id="country" class="form-control  @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required autocomplete="country" autofocus placeholder="country..." required >
+                       
+                        @error('country')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ZIPcode" class="text-info">ZIPcode</label><br>
+                        <input type="text" name="ZIPcode" id="ZIPcode" class="form-control  @error('ZIPcode') is-invalid @enderror" name="ZIPcode" value="{{ old('ZIPcode') }}" required autocomplete="ZIPcode" autofocus placeholder="ZIP Code" required >
+                       
+                        @error('ZIPcode')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber" class="text-info">Phone Number</label><br>
+                        <input type="text" name="phoneNumber" id="phoneNumber" class="form-control  @error('phoneNumber') is-invalid @enderror" name="phoneNumber" value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber" autofocus placeholder="phoneNumber..." required >
+                       
+                        @error('phoneNumber')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                      <div class="form-group ">
 
@@ -103,28 +120,3 @@
 @endguest
 
 @endsection
-
-<style>
-    #profileDisplay {
-        display: block;
-        width: 50%;
-        margin: 10px auto;
-        border-radius: 0%;
-    }
-</style>
-<script>
-    function triggerClick() {
-    document.querySelector('#image').click();
-}
-
-function displayImage(e){
-    if(e.files[0]){
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
-        }
-        reader.readAsDataURL(e.files[0]);
-    }
-}
-</script>

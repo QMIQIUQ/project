@@ -14,22 +14,30 @@ class ShopController extends Controller
         return Validator::make($data, [
             'address' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
-            'ZIPcode' => ['required', 'string', 'max:255'],
-            
+            'state' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'ZIPcode' => ['required', 'string', 'max:255'],           
+            'phoneNumber' => ['required', 'string', 'max:255'],
         ]);
     }
     public function create(){
-        return view('insertrepairShop') ->with('insert_companies',insertCompany::all());
+        $companyID=insertCompany::where('insert_companies.userID','=',Auth::id())->get();
+        return view('insertrepairShop')->with('companyID',$companyID);
 
     }
     public function store(){    
         $r=request(); 
+        
         $addShop=repairShop::create([   
             'id'=>$r->ID,
-            'CompanyID'=>$r->company,
+            'companyID'=>$r->company,
+            'name'=>$r->name, 
             'address'=>$r->address, 
             'city'=>$r->city,
+            'state'=>$r->state,
+            'country'=>$r->country,
             'ZIPcode'=>$r->ZIPcode,
+            'phoneNumber'=>$r->phoneNumber,
             'ratingPoints'=>0,
             'ratingUser'=>0,
           
@@ -38,11 +46,12 @@ class ShopController extends Controller
         
         Session::flash('success',"Shop create succesful!");
 
-        return redirect()->route('insertrepairShop');
+        return redirect()->route('insertShop');
     }
 
     public function show(){
-        $shops=repairShop::paginate(5);
+        $shops=repairShop::all();
+    
         return view('showShop')->with('shops',$shops);
     }
 
@@ -52,7 +61,7 @@ class ShopController extends Controller
         
         
         return view('editShop')->with('shops',$shops)
-                                ->with('insert_companies',Company::all());
+                                ->with('insert_companies',insertCompany::all());
     }
 
     public function delete($id){
@@ -65,14 +74,15 @@ class ShopController extends Controller
      public function update(){
         $r=request();//retrive submited form data
         $shops =repairShop::find($r->id);  //get the record based on product ID      
-                
-        $shops->CompanyID=$r->company;
+        $shops->name=$r->name;
         $shops->address=$r->address;
         $shops->city=$r->city;
+        $shops->state=$r->state;
+        $shops->country=$r->country;
         $shops->ZIPcode=$r->ZIPcode;
-        $shops->ratingPoints=$r->ratingPoints;
-        $shops->ratingUser=$r->ratingUser;
+        $shops->phoneNumber=$r->phoneNumber;
         $shops->save(); //run the SQL update statment
+        Session::flash('Success'," edit succesful!");
         return redirect()->route('showShop');
     }
 }

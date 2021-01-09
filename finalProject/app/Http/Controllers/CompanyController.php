@@ -23,10 +23,7 @@ class CompanyController extends Controller
     }
 
     public function store(){    
-        
-
-
-        $r=request(); 
+        $r=request();
         $user = User::find(Auth::id());  
         $image=$r->file('product-image'); 
         $image->move('images',$image->getClientOriginalName());               
@@ -42,8 +39,8 @@ class CompanyController extends Controller
         ]);
         $user->services=1;
         $user->save();
-
-        Session::flash('success',"Category create succesful!");
+        
+        Session::flash('success',"Company create succesful!");
         Return view('registerStatus');
     }
 
@@ -51,7 +48,7 @@ class CompanyController extends Controller
     public function show(){
         $company=insertCompany::leftjoin('users','userID','=','users.id')
         ->Select('insert_companies.*','users.name as userName')
-        ->get();;
+        ->get();
         return view('showCompanyRequest')->with('company',$company);
     }
 

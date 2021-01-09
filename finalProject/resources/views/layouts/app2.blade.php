@@ -188,10 +188,10 @@
           @if (Auth::user()->admin == 2||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header">Services</div>
-          <a class="dropdown-item" href="{{url('/#')}}">
+          <a class="dropdown-item" href="{{url('/showShop')}}">
             MY Repair Shop
           </a>
-          <a class="dropdown-item" href="{{url('/#')}}">
+          <a class="dropdown-item" href="{{url('/insertrepairShop')}}">
             Add Shops
           </a>
           @endif 

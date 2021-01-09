@@ -13,9 +13,10 @@ class CreateRepairShopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('repairShops', function (Blueprint $table) {
+        Schema::create('repair_shops', function (Blueprint $table) {
             $table->id();
             $table->integer('companyID');
+            $table->string('name');
             $table->string('address');
             $table->string('city');
             $table->string('state');
