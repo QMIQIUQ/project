@@ -24,6 +24,8 @@ Route::get('/insertCategory', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//main page
+Route::get('/', [App\Http\Controllers\welcomeController::class, 'index'])->name('welcome');
 //Category
 Route::post('/insertCategory', [App\Http\Controllers\CategoryController::class, 'store'])->name('insertCategory'); 
 Route::post('/insertCategory/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('addCategory'); 
@@ -57,8 +59,7 @@ Route::get('/deleteRate/{id}', [App\Http\Controllers\ratingController::class, 'd
 Route::get('/service', function () {
     return view('service');
 });
-//main page
-Route::get('/', [App\Http\Controllers\welcomeController::class, 'index'])->name('welcome');
+
 //search
 Route::get('/searchProduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
 
@@ -72,8 +73,16 @@ Route::get('/registerStatus', function () {
 });
 Route::get('/showCompanyRegister', [App\Http\Controllers\CompanyController::class, 'show'])->name('showRegisterCompany');
 
+Route::post('/insertrepairShop/store', [App\Http\Controllers\ShopController::class, 'store'])->name('addShop');
+Route::get('/showShop', [App\Http\Controllers\ShopController::class, 'show'])->name('showShop');
+Route::get('/insertrepairShop', [App\Http\Controllers\ShopController::class, 'create'])->name('insertShop');
+Route::get('/editrepairShop/{id}', [App\Http\Controllers\ShopController::class, 'edit'])->name('editShop');
+Route::get('/deleterepairShop/{id}', [App\Http\Controllers\ShopController::class, 'delete'])->name('deleteShop');
+Route::post('/updaterepairShop', [App\Http\Controllers\ShopController::class, 'update'])->name('updateShop');
 
 
+Route::get('/userShowShop', [App\Http\Controllers\userShowShop::class, 'show'])->name('userShowShop');
+Route::get('/searchShop', [App\Http\Controllers\userShowShop::class, 'search'])->name('search.shop');
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
 // route for check status of the payment

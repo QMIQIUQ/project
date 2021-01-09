@@ -46,10 +46,10 @@
             <div id="cont">
                
                 <div>
-                    <form action="{{ route('search.product') }}" method="Get">
+                    <form action="{{ route('search.shop') }}" method="Get">
                         @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control" name="searchProduct" id="searchProduct" placeholder="Search">
+                            <input type="text" class="form-control" name="searchShop" id="searchShop" placeholder="Search">
                             <button class="btn btn-success" type="submit">Search</button>
                         </div>
                     </form>
@@ -71,7 +71,7 @@
                 <div class="col mb-4 product_gallery">
                
                 <div class="card-group">
-                    
+                   
                 <div class="card-body">
                 <p class="username">Seller:{{$product->username}}</p>
                      <a href="{{ route('product.detail', ['id' => $product->id]) }}">
