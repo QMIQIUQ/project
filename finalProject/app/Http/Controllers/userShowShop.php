@@ -23,7 +23,8 @@ class userShowShop extends Controller
         $shops =DB::table('repair_shops')
         ->leftjoin('insert_companies', 'insert_companies.id', '=', 'repair_shops.companyID')
         ->select('insert_companies.name as comname','insert_companies.id as comid','repair_shops.*')
-        ->where('repair_shops.address', 'like', '%' . $keyword . '%')
+        ->Where('repair_shops.name', 'like', '%' . $keyword . '%')
+        ->orwhere('repair_shops.address', 'like', '%' . $keyword . '%')
         ->orWhere('repair_shops.city', 'like', '%' . $keyword . '%')
         ->orWhere('repair_shops.state', 'like', '%' . $keyword . '%')
         //->get();
