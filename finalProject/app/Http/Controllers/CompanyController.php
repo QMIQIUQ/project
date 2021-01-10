@@ -57,7 +57,18 @@ class CompanyController extends Controller
         $user->admin=2;
         $user->services = 3;
         $user->save();
+        Session::flash('approved',"Sucessfuly Approved");
+        return redirect()->route('showRegisterCompany');
 
+    }
+
+    public function reject($id){
+        $user = User::find($id);  
+        $companies=insertCompany::where('userID','=',$id);
+        $companies->delete();
+        $user->services = 2;
+        $user->save();
+        Session::flash('rejected',"Sucessfuly rejected");
         return redirect()->route('showRegisterCompany');
 
     }

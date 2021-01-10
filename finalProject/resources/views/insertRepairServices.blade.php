@@ -8,7 +8,7 @@
 
 @endif
 
-@elseif (Auth::user()->services == 0||Auth::user()->admin == 1)
+@elseif ((Auth::user()->admin == 0&&Auth::user()->services == 0)||Auth::user()->admin == 1||(Auth::user()->services == 2 && Auth::user()->admin == 0))
 
 
 

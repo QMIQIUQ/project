@@ -15,9 +15,14 @@
 @elseif (Auth::user()->admin == 1)
 
 
-@if(Session::has('deleteSuccess'))
+@if(Session::has('approved'))
 <div class="alert alert-success" role="alert">
-    {{Session::get('deleteSuccess')}}
+    {{Session::get('approved')}}
+
+</div>
+@elseif(Session::has('rejected'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('rejected')}}
 
 </div>
 @endif
@@ -48,7 +53,7 @@
             <td>{{$category->ownerName}}</td>
             <td>{{$category->userName}}</td>
             <td><a href="{{route('approveRegisterCompany',['id'=>$category->userID])}}" class="btn btn-success">Approve</a> <br>
-                <a href="" class="btn btn-danger">Reject</a></td>
+                <a href="{{route('rejectRegisterCompany',['id'=>$category->userID])}}" class="btn btn-danger">Reject</a></td>
         </tr>
         @endif
         @endforeach
