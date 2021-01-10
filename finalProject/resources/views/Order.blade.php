@@ -22,7 +22,8 @@
 				@php
 					$total=0;
 				@endphp
-                @foreach($orders as $myorder)
+				@foreach($orders as $myorder)
+				@if($myorder->paymentStatus == "pending")
 		            <tr>
 		               
                         <td><img src="{{ asset('images/') }}/{{$myorder->image}}" alt="" width="50"></td>
@@ -42,7 +43,8 @@
 		                    {{ $myorder->paymentStatus }}
 		                </td>
 						<td>{{$myorder->Address}}</td>
-		            </tr> 
+					</tr> 
+					@endif
                 @endforeach
 				 
 				<tr class="thead-dark">
@@ -50,7 +52,8 @@
                 <td>&nbsp;</td>
 		        <td>&nbsp;</td>                   
 		        <td>&nbsp;</td>
-		        <td><input type="hidden" name="amount" value="{{ $total }}"></td>
+		<input type="hidden" name="amount" value="{{ $total }}">
+				<td><input  name="amount1" value="{{ $total }}" disabled></td>
                 <td><input type="submit" name="paynow" value="Pay Now"></td>
 		    </tr>
 		</form>					
