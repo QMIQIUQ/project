@@ -178,6 +178,8 @@
           @endif 
 
           @if ((Auth::user()->services == 1 && Auth::user()->admin == 0)||Auth::user()->admin == 1||(Auth::user()->services == 2 && Auth::user()->admin == 0))
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-header" >Status</div>
           <a class="dropdown-item" href="{{url('/registerStatus')}}">
             Register Status
           </a>
