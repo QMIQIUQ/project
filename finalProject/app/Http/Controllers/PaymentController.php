@@ -21,6 +21,9 @@ use Redirect;
 use Session;
 use URL;
 use Auth;
+use DB;
+use App\Models\Phone; 
+use App\Models\Order; 
 use Notification;
 
 
@@ -32,6 +35,8 @@ class PaymentController extends Controller
      *
      * @return void
      */
+    
+
     public function __construct()
     {
 
@@ -50,7 +55,8 @@ class PaymentController extends Controller
     }
     public function payWithpaypal(Request $request)
     {
-        
+
+
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -71,7 +77,7 @@ class PaymentController extends Controller
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
-            ->setDescription('Your transaction description');
+            ->setDescription('Your Selected items');
 
         $redirect_urls = new RedirectUrls();
         $redirect_urls->setReturnUrl(URL::to('status')) /** Specify return URL **/
@@ -118,7 +124,7 @@ class PaymentController extends Controller
         Session::put('paypal_payment_id', $payment->getId());
 
         if (isset($redirect_url)) {
-
+            
             /** redirect to paypal **/
             return Redirect::away($redirect_url);
 
@@ -156,9 +162,47 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
 
         if ($result->getState() == 'approved') {
-
-            Session::flash('success', 'Payment success');
             
+            
+            
+            $myorders=DB::table('orders')
+        ->leftjoin('carts', 'orders.id', '=', 'carts.orderID')
+        ->leftjoin('phones', 'phones.id', '=', 'carts.ProductID')
+        ->select('carts.*','orders.*','phones.*','carts.quantity as qty','carts.ProductID as productID','orders.id as ID')
+        ->where('orders.userID','=',Auth::id())
+        ->where('orders.paymentStatus','=','pending')
+        ->get();
+              
+            $temp = "lolasd";
+            $quantity = "asda";
+            $qtya = "asd";
+            foreach ($myorders as $item){
+                if($temp != $item->ID){
+                    $test=Order::find($item->ID);
+                    $test->paymentStatus= "successful";
+                    $test->save();
+                    $temp = $item->ID;
+                }
+                $quantity = $item->qty;
+                
+             $products =Phone::find($item->productID);
+             $qtya = $products->quantity;
+             $quantity = $item->qty;
+
+               $products->quantity=$qtya-$quantity;
+               $products->save();
+            }
+               
+                
+                    
+               
+            
+                
+               
+               
+           
+
+            Session::flash('paymentSuccess', 'Payment success');
 
             //add update record for cart
             $email = Auth::user()->email;
