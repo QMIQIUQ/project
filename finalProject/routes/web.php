@@ -72,7 +72,11 @@ Route::get('/registerStatus', function () {
     return view('registerStatus');
 });
 Route::get('/showCompanyRegister', [App\Http\Controllers\CompanyController::class, 'show'])->name('showRegisterCompany');
+Route::get('/showCompanyRegister/{id}', [App\Http\Controllers\CompanyController::class, 'approve'])->name('approveRegisterCompany');
 
+
+
+//register shop
 Route::post('/insertrepairShop/store', [App\Http\Controllers\ShopController::class, 'store'])->name('addShop');
 Route::get('/showShop', [App\Http\Controllers\ShopController::class, 'show'])->name('showShop');
 Route::get('/insertrepairShop', [App\Http\Controllers\ShopController::class, 'create'])->name('insertShop');

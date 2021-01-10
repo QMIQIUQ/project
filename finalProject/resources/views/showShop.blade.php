@@ -10,7 +10,7 @@
 
 @endif
 
-@elseif (Auth::user()->admin == 0||Auth::user()->admin == 1)
+@elseif ((Auth::user()->admin == 2 && Auth::user()->services == 3)|Auth::user()->admin == 1)
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>

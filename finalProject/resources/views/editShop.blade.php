@@ -2,6 +2,18 @@
 @section('content')
 
 
+
+@guest
+@if (Route::has('login'))
+<script>
+	window.location.href='{{ route('login') }}'
+</script>
+
+@endif
+
+@elseif ((Auth::user()->admin == 2 && Auth::user()->services == 3)|Auth::user()->admin == 1)
+
+
 <div class="container">
     <div class="row justify-content-center align-items-center ">
         <div class="col-md-6">
@@ -54,7 +66,13 @@
         </div>
     </div>
 </div>
+
+@endguest
+
 @endsection
+
+
+
 <style>
     #profileDisplay {
         display: block;
@@ -67,6 +85,9 @@
     function triggerClick() {
     document.querySelector('#image').click();
 }
+
+
+
 
 function displayImage(e){
     if(e.files[0]){

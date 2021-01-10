@@ -27,7 +27,7 @@
         <table class="table table-hover table-striped">
         <tr class="thead-dark" >
             <th>Image</th>
-            <th>Company Name</th>
+            <th>Company Name(with SSM)</th>
             <th>Company Description</th>
             <th>Company Address</th>
             <th>Company Tel</th>
@@ -38,7 +38,7 @@
 
 
         @foreach($company as $category)
-        @if($category->userAdmin == 0)
+        @if($category->userServices == 1 )
         <tr>
             <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px"></td>
             <td>{{$category->name}}</td>
@@ -47,7 +47,7 @@
             <td>{{$category->Tel}}</td>
             <td>{{$category->ownerName}}</td>
             <td>{{$category->userName}}</td>
-            <td><a href="" class="btn btn-success">Approve</a> <br>
+            <td><a href="{{route('approveRegisterCompany',['id'=>$category->userID])}}" class="btn btn-success">Approve</a> <br>
                 <a href="" class="btn btn-danger">Reject</a></td>
         </tr>
         @endif
