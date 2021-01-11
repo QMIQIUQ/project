@@ -13,7 +13,7 @@
     <div id="content">
        
     <h2>Repair Shop</h2>
-             <div>
+              <div>
                 <form action="{{ route('search.shop') }}" method="Get">
                  @csrf
                  <div class="input-group">
@@ -24,18 +24,15 @@
               </div>
     <form action="" method="post">
         @csrf
-          
         <div class="row">
              @foreach($shops as $shops)
             <div class="col-sm-6">
             <div class="card mb-3 text-center " style="width: 16rem;">
                 <div class="card-body">
                     <h3 class="card-title"><strong>{{$shops->name}}</strong></h3>
-    
                     <h3 class="card-text " >Rating:{{$shops->ratingPoints}}</h3>
                     <p class="card-text  "style="padding: 0px 0px 0 20px" ></p>
-         
-                    <p class="card-text" ><small class="text-muted">Contact:{{$shops->phoneNumber}}</small></p>
+                    <a href=" https://wa.me/+60{{$shops->phoneNumber}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">Contact:{{$shops->phoneNumber}}</a>
                 </div>
                 <div class="card-footer bg-transparent ">
                     <small class="text-muted">
