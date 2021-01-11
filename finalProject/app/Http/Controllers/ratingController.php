@@ -32,7 +32,7 @@ class ratingController extends Controller
         
         Session::flash('success',"Rate  succesful!");
 
-        return redirect()->route('phone.detail',['id'=>$r->phoneID]);
+        return redirect()->route('product.detail', ['id' => $r->phoneID]);
     }
 
     public function showRate(){
