@@ -92,9 +92,17 @@
         </form>
       
                 <div class="card my-4">
-					<h5 class="card-header">Comments <span class="badge badge-dark"></span></h5>
+					<h5 class="card-header">Rating & Comments <span class="badge badge-dark"></span></h5>
 					<div class="card-body">
-						
+						<blockquote class="blockquote">
+                            <p class="mb-0"></p>
+                          
+                            <footer class="blockquote-footer">Admin</footer>
+                           
+                            
+                          
+                          </blockquote>
+                          <hr/>
 								
 							
 				
