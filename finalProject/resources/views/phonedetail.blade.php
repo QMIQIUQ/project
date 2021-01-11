@@ -66,7 +66,7 @@
         </form>   
      
     	<form method="post" action="{{route('addRate')}}">
-              
+              @csrf
 				<!-- Add Comment -->
 				<div class="card my-5">
 					<h5 class="card-header">Add Rating & Comment</h5>
@@ -83,8 +83,8 @@
                             <input type="radio" id="star1" name="ratingPoints" value="1" />
                             <label for="star1" title="text">1 star</label>
                         </div>
-                        @csrf
                         
+                        <input type="hidden" id="phoneID" name="phoneID" value="{{$phoneID}}" />
 						<textarea name="comment" rows="1" class="form-control"></textarea>
 						<input type="submit" class="btn btn-dark mt-2" />
 					</div>
