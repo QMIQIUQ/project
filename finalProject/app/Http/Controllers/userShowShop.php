@@ -11,7 +11,7 @@ class userShowShop extends Controller
 {
     public function show(){
         
-        $shops=repairShop::paginate(10);
+        $shops=repairShop::paginate(6);
         
         return view('userShowShop')->with('shops',$shops);
     }
