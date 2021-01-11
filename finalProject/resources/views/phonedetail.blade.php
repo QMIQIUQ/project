@@ -131,7 +131,31 @@
                 <div class="card my-4">
                     <h5 class="card-header">Rating & Comments <span class="badge badge-dark"></span></h5>
                     <div class="card-body">
-                       
+
+
+                        @php
+                        $total=0;
+                        $calpoint=0;
+                        $numComment=0;
+                        @endphp
+                        @foreach($rating as $item)
+                       @php
+                           $calpoint= $calpoint+($item->ratingPoints);
+                        $numComment=$numComment+1;
+                       @endphp
+                        
+                        @endforeach
+
+                        
+                        
+                        @if($numComment != 0)
+                        @php
+                        $total= $calpoint/$numComment;
+                        @endphp
+                          Total user Ratting {{$total}}
+                       @endif
+                        
+
                           @foreach($rating as $ratings)
                           <blockquote class="blockquote">
                               <p class="mb-0">{{$ratings->comment}}</p>
