@@ -16,12 +16,12 @@ class ratingController extends Controller
     }
     public function store(){   
         $r=request(); 
-       
+      
         $username= DB::table('users')->where('id','=', Auth::id())->value('name');
-     
+      
         $addRate=rating::create([    
             
-            'ProductID'=>$r->id,
+            'PhoneID'=>$r->PhoneID,
             'comment'=>$r->comment, 
             'ratingPoints'=>$r->ratingPoints,
             'username'=>$username,

@@ -2,6 +2,7 @@
 @extends('layouts.app2')
 @section('content') 
 <link href="{{asset('css/phonedetail.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body id="subpage">
 <div id="templatemo_wrapper">
     <div class="cleaner h20"></div>
@@ -64,27 +65,39 @@
             <div class="cleaner"></div>
         </form>   
      
-    	<form method="post" action="">
-     
+    	<form method="post" action="{{route('addRate')}}">
+              
 				<!-- Add Comment -->
 				<div class="card my-5">
-					<h5 class="card-header">Add Comment</h5>
+					<h5 class="card-header">Add Rating & Comment</h5>
 					<div class="card-body">
-					
-						@csrf
-						<textarea name="comment" class="form-control"></textarea>
+                    <div class="rate">
+                            <input type="radio" id="star5" name="ratingPoints" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="ratingPoints" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="ratingPoints" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="ratingPoints" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="ratingPoints" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                        @csrf
+                        
+						<textarea name="comment" rows="1" class="form-control"></textarea>
 						<input type="submit" class="btn btn-dark mt-2" />
 					</div>
 				</div>
         </form>
       
-        <div class="card my-4">
+                <div class="card my-4">
 					<h5 class="card-header">Comments <span class="badge badge-dark"></span></h5>
 					<div class="card-body">
 						
 								
 							
-						
+				
 					</div>
 				</div>
                 
@@ -96,7 +109,42 @@
     </div> <!-- END of main -->
     
 </body>    
-   
-
-
 @endsection
+<style>
+    
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+</style>
