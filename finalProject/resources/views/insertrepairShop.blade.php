@@ -27,8 +27,6 @@
                     
                     <div class="form-group">
                         <h2 class="text-center text-info">Add Shop</h2><br>
-
-                        
                     </div>
                     <div class="form-group">
                     <label for="company" class="text-info">Company</label><br>
