@@ -7,6 +7,7 @@ use DB;
 use App\Models\Phone; 
 use App\Models\rating; 
 Use Auth;
+Use Session;
 class ratingController extends Controller
 {
    
@@ -21,7 +22,7 @@ class ratingController extends Controller
       
         $addRate=rating::create([    
             
-            'PhoneID'=>$r->PhoneID,
+            'phoneID'=>$r->phoneID,
             'comment'=>$r->comment, 
             'ratingPoints'=>$r->ratingPoints,
             'username'=>$username,
@@ -31,7 +32,7 @@ class ratingController extends Controller
         
         Session::flash('success',"Rate  succesful!");
 
-        return redirect()->route('insertRate');
+        return redirect()->route('phone.detail',['id'=>$r->phoneID]);
     }
 
     public function showRate(){
