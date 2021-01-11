@@ -77,22 +77,23 @@
                 <div class="card my-5">
                     <h5 class="card-header">Add Rating & Comment</h5>
                     <div class="card-body">
-                        <div class="rate"  >
-                            <input type="radio" id="star5" name="ratingPoints" value="5"disabled />
+                        <div class="rate">
+                            <input type="radio" id="star5" name="ratingPoints" value="5" disabled />
                             <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="ratingPoints" value="4"disabled />
+                            <input type="radio" id="star4" name="ratingPoints" value="4" disabled />
                             <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="ratingPoints" value="3" disabled/>
+                            <input type="radio" id="star3" name="ratingPoints" value="3" disabled />
                             <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="ratingPoints" value="2" disabled/>
+                            <input type="radio" id="star2" name="ratingPoints" value="2" disabled />
                             <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="ratingPoints" value="1" disabled/>
+                            <input type="radio" id="star1" name="ratingPoints" value="1" disabled />
                             <label for="star1" title="text">1 star</label>
                         </div>
 
                         <textarea name="comment" rows="1" class="form-control" disabled></textarea>
-                        <a href="{{ route('login') }}"> <input type="submit" class="btn btn-dark mt-2" value="Login to submint"  /></a>
-                       
+                        <a href="{{ route('login') }}"> <input type="submit" class="btn btn-dark mt-2"
+                                value="Login to submint" /></a>
+
                     </div>
                 </div>
 
@@ -126,33 +127,42 @@
                 @endguest
 
 
-
+               
                 <div class="card my-4">
-					<h5 class="card-header">Rating & Comments <span class="badge badge-dark"></span></h5>
-					<div class="card-body">
-						<blockquote class="blockquote">
-                            <p class="mb-0"></p>
-                          
-                            <footer class="blockquote-footer">Admin</footer>
-                           
+                    <h5 class="card-header">Rating & Comments <span class="badge badge-dark"></span></h5>
+                   
+                    <div class="card-body">
+                        @foreach($rating as $rating)
+                        @php
+                        $numComment=0;
+                        $total=($total+={{$rating->ratingPoints}})/
+                        @endphp
+                        @endforeach
+                        <h2>Total: </h2>
+                        @foreach($rating as $rating)
+                        <blockquote class="blockquote">
                             
+                            <p class="mb-0">{{$rating->comment}}</p>
+
+                            <footer class="blockquote-footer">{{$rating->username}} |Point->{{$rating->ratingPoints}}</footer>
+                            
+
                           
-                          </blockquote>
-                          <hr/>
-								
-							
-				
-					</div>
-				</div>
-                
-                
-       
-        </div> <!-- END of content -->
-        @endforeach
-        <div class="cleaner"></div>
-    </div> <!-- END of main -->
-    
-</body>    
+                        </blockquote>
+                        @endforeach
+                        
+                    </div>
+                   
+                </div>
+               
+
+
+            </div> <!-- END of content -->
+            @endforeach
+            <div class="cleaner"></div>
+        </div> <!-- END of main -->
+
+</body>
 @endsection
 <style>
     .rate {
@@ -164,6 +174,7 @@
     .rate:not(:checked)>input {
         position: absolute;
         top: -9999px;
+        
     }
 
     .rate:not(:checked)>label {

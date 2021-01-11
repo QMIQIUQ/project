@@ -35,13 +35,5 @@ class ratingController extends Controller
         return redirect()->route('product.detail', ['id' => $r->phoneID]);
     }
 
-    public function showRate(){
-        $ratings=DB::table('ratings')
-        ->leftjoin('phones', 'phones.id', '=', 'ratings.ProductID')
-        ->where('ratings.userID','=',Auth::id())
-        ->get();
-
-        return view('showRate')->with('ratings',$ratings);
-    }
-
+   
 }
