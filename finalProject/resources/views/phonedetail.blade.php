@@ -130,27 +130,30 @@
                
                 <div class="card my-4">
                     <h5 class="card-header">Rating & Comments <span class="badge badge-dark"></span></h5>
-                   
                     <div class="card-body">
+                        @php
+                        $total=0;
+                        $calpoint=0;
+                        $numComment=0;
+                        @endphp
                         @foreach($rating as $rating)
                         @php
-                        $numComment=0;
-                        $total=($total+={{$rating->ratingPoints}})/
+                        $calpoint= $calpoint+($rating->ratingPoints);
                         @endphp
                         @endforeach
-                        <h2>Total: </h2>
-                        @foreach($rating as $rating)
-                        <blockquote class="blockquote">
-                            
-                            <p class="mb-0">{{$rating->comment}}</p>
+                        @php
+                        $numComment++;
+                        if($numComment != 0){
+                            $total= $calpoint/$numComment;
+                        }
+                        @endphp
 
-                            <footer class="blockquote-footer">{{$rating->username}} |Point->{{$rating->ratingPoints}}</footer>
-                            
-
-                          
-                        </blockquote>
-                        @endforeach
-                        
+                          @foreach($rating as $ratings)
+                          <blockquote class="blockquote">
+                              <p class="mb-0">{{$ratings->comment}}</p>
+                              <footer class="blockquote-footer">by:{{$ratings->username}} | ★:{{$ratings->ratingPoints}}</footer>  
+                          </blockquote>
+                          @endforeach
                     </div>
                    
                 </div>
