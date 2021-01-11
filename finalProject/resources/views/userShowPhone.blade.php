@@ -4,20 +4,20 @@
 @if(Session::has('success'))
 <div class="alert alert-success" role="alert">
     {{Session::get('success')}}
-    
+
 </div>
 @endif
 @if(Session::has('paymentSuccess'))
 <div class="alert alert-success" role="alert">
 
-{{Session::get('paymentSuccess')}}
+    {{Session::get('paymentSuccess')}}
 
 </div>
 @endif
 
 <body id="subpage">
     <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
- 
+
 
 
     <div id="templatemo_wrapper">
@@ -51,16 +51,17 @@
             </div> <!-- END of sidebar -->
 
             <div id="cont">
-               
+
                 <div>
                     <form action="{{ route('search.product') }}" method="Get">
                         @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control" name="searchproduct" id="searchproduct" placeholder="Search">
+                            <input type="text" class="form-control" name="searchProduct" id="searchProduct"
+                                placeholder="Search">
                             <button class="btn btn-success" type="submit">Search</button>
                         </div>
                     </form>
-                  
+
                 </div>
 
                 @if($categoryName==null)
@@ -71,46 +72,47 @@
                 <h2>{{$CName->name}}</h2>
                 @endforeach
                 @endif
-                
-                <div class="row row-cols-1 row-cols-md-2">        
-                @foreach($products as $product) 
-               
-                <div class="col mb-4 product_gallery">
-               
-                <div class="card-group">
-                   
-                <div class="card-body">
-                <p class="username">Seller:{{$product->username}}</p>
-                     <a href="{{ route('product.detail', ['id' => $product->id]) }}">
-                    <img class="" src="{{ asset('images/') }}/{{$product->image}}"  alt="" width="100px"></a>
-                   
-                    <h3 class="card-text">{{$product->name}}</h3>
-                <p class="card-text product_price">RM{{$product->price}}</p>
+
+                <div class="row row-cols-1 row-cols-md-2">
+                    @foreach($products as $product)
+
+                    <div class="col mb-4 product_gallery">
+
+                        <div class="card-group">
+
+                            <div class="card-body">
+                                <p class="username">Seller:{{$product->username}}</p>
+                                <a href="{{ route('product.detail', ['id' => $product->id]) }}">
+                                    <img class="" src="{{ asset('images/') }}/{{$product->image}}" alt=""
+                                        width="100px"></a>
+
+                                <h3 class="card-text">{{$product->name}}</h3>
+                                <p class="card-text product_price">RM{{$product->price}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    @endforeach
                 </div>
-                </div>
-              
-                </div> 
-                @endforeach         
-                </div>         
-                  
 
 
 
-     
+
+
                 <div class="cleaner h50"></div>
 
                 {{ $products->links('pagination::bootstrap-4')}}
                 <div class="cleaner"></div>
             </div> <!-- END of content -->
 
-           
+
             <div class="cleaner"></div>
-           
+
         </div> <!-- END of main -->
-      
 
 
-      
+
+
     </div>
 
 </body>

@@ -3,7 +3,9 @@
 
 @guest
 @if (Route::has('login'))
-<script>window.location.href='{{ route('login') }}'</script>
+<script>
+    window.location.href='{{ route('login') }}'
+</script>
 
 @endif
 
@@ -23,27 +25,29 @@
 @endif
 
 <div class="container">
-	    <div class="row">
+    <div class="row">
         <table class="table table-hover table-striped">
-        <tr class="thead-dark" >
-            <th>Image</th>
-            <th>Name</th>
-            <th>Action</th>
-        </tr>
+            <tr class="thead-dark">
+                <th>Image</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
 
 
-        @foreach($categories as $category)
-        <tr>
-            <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px"></td>
-            <td>{{$category->name}}</td>
-            <td><a href="{{ route('deleteCategory', ['id' => $category->id]) }}" class="btn btn-danger">Delete</a></td>
-        </tr>
-        @endforeach
-    </table>
-		
-		
+            @foreach($categories as $category)
+            <tr>
+                <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px">
+                </td>
+                <td>{{$category->name}}</td>
+                <td><a href="{{ route('deleteCategory', ['id' => $category->id]) }}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            @endforeach
+        </table>
 
-	</div>
+
+
+    </div>
 </div>
 
 
