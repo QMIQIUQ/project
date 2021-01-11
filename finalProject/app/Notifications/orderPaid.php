@@ -6,6 +6,11 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\Order; 
+use App\Models\Phone;
+use Auth;
+use PDF;
+use DB;
 
 class orderPaid extends Notification
 {
@@ -40,10 +45,24 @@ class orderPaid extends Notification
      */
     public function toMail($notifiable)
     {
+        $myorders=DB::table('orders')
+        ->leftjoin('carts', 'orders.id', '=', 'carts.orderID')
+        ->leftjoin('phones', 'phones.id', '=', 'carts.ProductID')
+        ->select('carts.*','orders.*','phones.*','carts.quantity as qty')
+        ->where('orders.userID','=',Auth::id())
+        ->where('orders.paymentStatus','=','pending')
+        ->get();
+
+        $products=Phone::where('phones.userID','=',Auth::id())
+        ->paginate(5)
+        ;
+        $pdf = PDF::loadView('myPDF', compact('myorders'));
+    
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
+                    ->line('Purchase success ')
                     ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Thank you for using our Website!View your reciept in Attachments')
+                    ->attachData($pdf->output(), "recipt.pdf");
     }
 
     /**
