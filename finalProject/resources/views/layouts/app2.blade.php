@@ -242,8 +242,8 @@
     <div class="row row-30">
       <div class="col-md-4 col-xl-5">
         <div class="pr-xl-4">
-          <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business
-            consulting, and marketing.</p>
+          <p>MiniBar’s Phones Service is designed for clients to browse, buy mobile phones, and also give seller an opportunity provide repairing services through an online platform
+</p>
           <!-- Rights-->
          
         </div>
@@ -258,18 +258,13 @@
           <dt>email:</dt>
           <dd><a href="mailto:#">hongkai882@gmail.com</a></dd>
         </dl>
-        <!-- <dl class="contact-list">
-          <dt>phones:</dt>
-          <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a href="tel:#">https://karosearch.com</a>
-          </dd>
-        </dl> -->
+       
       </div>
       <div class="col-md-4 col-xl-3">
         <h5>Links</h5>
         <ul class="nav-list">
           <li> <a class="dropdown-item" href="{{url('/userShowPhone')}}">Show Procuct </a></li>
           <li><a class="dropdown-item" href="{{url('/showPhone')}}">Your Product</a></li>
-          <li><a class="dropdown-item" href="{{url('/showmyCart')}}">MyCart</a></li>
          </ul>
          <h6>Secure Payment:</h6>
          <img src="images/payment.png" alt="" width="200" height="40"
