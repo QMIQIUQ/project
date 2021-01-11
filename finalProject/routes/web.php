@@ -55,15 +55,16 @@ Route::post('/insertRate/store', [App\Http\Controllers\ratingController::class, 
 Route::get('/showRate', [App\Http\Controllers\ratingController::class, 'showRate'])->name('showRate');
 Route::get('/insertRate', [App\Http\Controllers\ratingController::class, 'create'])->name('insertRate');
 Route::get('/deleteRate/{id}', [App\Http\Controllers\ratingController::class, 'delete'])->name('deleteRate');
-//services
-Route::get('/service', function () {
-    return view('service');
-});
+
 
 //search
 Route::get('/searchProduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');
 
 //register RepairServices
+//services
+Route::get('/service', function () {
+    return view('service');
+});
 Route::get('/insertRepairServices', function () {
     return view('insertRepairServices');
 });
@@ -72,7 +73,11 @@ Route::get('/registerStatus', function () {
     return view('registerStatus');
 });
 Route::get('/showCompanyRegister', [App\Http\Controllers\CompanyController::class, 'show'])->name('showRegisterCompany');
+Route::get('/showCompanyRegister/approve/{id}', [App\Http\Controllers\CompanyController::class, 'approve'])->name('approveRegisterCompany');
+Route::get('/showCompanyRegister/reject/{id}', [App\Http\Controllers\CompanyController::class, 'reject'])->name('rejectRegisterCompany');
 
+
+//register shop
 Route::post('/insertrepairShop/store', [App\Http\Controllers\ShopController::class, 'store'])->name('addShop');
 Route::get('/showShop', [App\Http\Controllers\ShopController::class, 'show'])->name('showShop');
 Route::get('/insertrepairShop', [App\Http\Controllers\ShopController::class, 'create'])->name('insertShop');

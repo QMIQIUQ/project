@@ -8,7 +8,7 @@
 
 @endif
 
-@elseif (Auth::user()->services == 0||Auth::user()->admin == 1)
+@elseif ((Auth::user()->admin == 0&&Auth::user()->services == 0)||Auth::user()->admin == 1||(Auth::user()->services == 2 && Auth::user()->admin == 0))
 
 
 
@@ -24,12 +24,13 @@
     <div class="row justify-content-center align-items-center ">
         <div class="col-md-6">
             <div class="col-md-12">
+                <h2 class="text-center text-info">Register Repair Services</h2><br>
             <form class="subform"  method="post" action="{{route('insertRepairServices')}}" enctype="multipart/form-data">
                     @csrf <!-- very important if you didn't insert CSRF, it not allow submit the data-->
                     <div class="form-group">
-                        <h2 class="text-center text-info">Register Repair Services</h2><br>
+                        
 
-                        <label for="name" class="text-info">Company Name</label><br>
+                        <label for="name" class="text-info">Company Name(with SSM)</label><br>
                         <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Company Name..." required >
                        
                         @error('name')
@@ -41,7 +42,7 @@
 
                     
                     <div class="form-group">
-                         <label for="description" class="text-info">Product Description</label><br>
+                         <label for="description" class="text-info">Company Description(created date,simple discription)</label><br>
                         <textarea rows="4" name="description" id="description" class="form-control  @error('name') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus placeholder="Company description..." required ></textarea>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -51,7 +52,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="address" class="text-info">address</label><br>
+                        <label for="address" class="text-info">Company Address/Location</label><br>
                         <input type="text" name="address" id="address" class="form-control  @error('name') is-invalid @enderror" value="{{ old('address') }}" required autocomplete="quantity" autofocus placeholder="address..." required >
                        
                         @error('name')
@@ -73,7 +74,7 @@
                     </div> 
 
                     <div class="form-group">
-                        <label for="ownerName" class="text-info">Owner Name</label><br>
+                        <label for="ownerName" class="text-info">Company Owner Name</label><br>
                         <input type="text" name="ownerName" id="ownerName" class="form-control  @error('name') is-invalid @enderror" value="{{ old('ownerName') }}" required autocomplete="ownerName" autofocus placeholder="ownerName..." required >
                        
                         @error('name')
@@ -84,7 +85,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="image" class="text-info">Company Image</label><br>
+                        <label for="image" class="text-info">Company Document Image</label><br>
 
                         <div>
                             <img src="{{ asset('images/image.png')}}" onclick="triggerClick()" id="profileDisplay">
@@ -100,7 +101,7 @@
                      <div class="form-group ">
 
                         <button  type="submit" class="btn btn-primary " name="insert" value="Insert">
-                            Register
+                            Submint Register Form
                         </button>
                         
                     </div>

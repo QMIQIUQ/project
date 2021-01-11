@@ -53,6 +53,7 @@ class OrderController extends Controller
         ->leftjoin('phones', 'phones.id', '=', 'carts.ProductID')
         ->select('carts.*','orders.*','phones.*','carts.quantity as qty')
         ->where('orders.userID','=',Auth::id())
+        ->where('orders.paymentStatus','=','pending')
         ->get();
         //->paginate(3);
         return view('Order')->with('orders',$myorders);

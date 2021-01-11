@@ -169,7 +169,7 @@
             Your Product
           </a>
           
-          @if ((Auth::user()->services == 0)||Auth::user()->admin == 1)
+          @if (Auth::user()->services == 0||Auth::user()->admin == 1||Auth::user()->services == 2)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header" >Join our team!</div>
           <a class="dropdown-item" href="{{url('/insertRepairServices')}}">
@@ -177,15 +177,15 @@
           </a>
           @endif 
 
-          @if ((Auth::user()->services == 1 && Auth::user()->admin == 0)||Auth::user()->admin == 1)
+          @if ((Auth::user()->services == 1 && Auth::user()->admin == 0)||Auth::user()->admin == 1||(Auth::user()->services == 2 && Auth::user()->admin == 0))
           <div class="dropdown-divider"></div>
-          <div class="dropdown-header">Join our team!</div>
+          <div class="dropdown-header" >Status</div>
           <a class="dropdown-item" href="{{url('/registerStatus')}}">
             Register Status
           </a>
           @endif
 
-          @if (Auth::user()->admin == 2||Auth::user()->admin == 1)
+          @if ((Auth::user()->admin == 2&&Auth::user()->services == 3)||Auth::user()->admin == 1)
           <div class="dropdown-divider"></div>
           <div class="dropdown-header">Services</div>
           <a class="dropdown-item" href="{{url('/showShop')}}">
@@ -225,7 +225,7 @@
 
   </nav>
 
-  <main class="py-4">
+  <main class="py-4 ">
 
     @yield('content')
 

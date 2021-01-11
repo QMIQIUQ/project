@@ -10,7 +10,7 @@
 
 @endif
 
-@elseif (Auth::user()->admin == 0||Auth::user()->admin == 1)
+@elseif (Auth::user()->admin == 0||Auth::user()->admin == 1||Auth::user()->admin == 2)
 
 
 

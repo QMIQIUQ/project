@@ -15,9 +15,14 @@
 @elseif (Auth::user()->admin == 1)
 
 
-@if(Session::has('deleteSuccess'))
+@if(Session::has('approved'))
 <div class="alert alert-success" role="alert">
-    {{Session::get('deleteSuccess')}}
+    {{Session::get('approved')}}
+
+</div>
+@elseif(Session::has('rejected'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('rejected')}}
 
 </div>
 @endif
@@ -27,7 +32,8 @@
         <table class="table table-hover table-striped">
         <tr class="thead-dark" >
             <th>Image</th>
-            <th>Company Name</th>
+            <th>Company Name(with SSM)</th>
+            <th>Company Description</th>
             <th>Company Address</th>
             <th>Company Tel</th>
             <th>Company Owner Name</th>
@@ -37,15 +43,19 @@
 
 
         @foreach($company as $category)
+        @if($category->userServices == 1 )
         <tr>
             <td><img src="{{ asset('images/') }}/{{$category->image}}" alt="" width="100" style="max-width:300px"></td>
             <td>{{$category->name}}</td>
+            <td>{{$category->description}}</td>
             <td>{{$category->address}}</td>
             <td>{{$category->Tel}}</td>
             <td>{{$category->ownerName}}</td>
             <td>{{$category->userName}}</td>
-            <td><a href="" class="btn btn-danger">Delete</a></td>
+            <td><a href="{{route('approveRegisterCompany',['id'=>$category->userID])}}" class="btn btn-success">Approve</a> <br>
+                <a href="{{route('rejectRegisterCompany',['id'=>$category->userID])}}" class="btn btn-danger">Reject</a></td>
         </tr>
+        @endif
         @endforeach
     </table>
 		
