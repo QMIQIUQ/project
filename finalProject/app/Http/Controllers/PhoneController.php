@@ -105,6 +105,7 @@ class PhoneController extends Controller
         
         return view('phonedetail')->with('products',$products)
                                 ->with('random',$random)
+                                ->with('phoneID',$id)
                                 ->with('categories',Category::all());
     }
 

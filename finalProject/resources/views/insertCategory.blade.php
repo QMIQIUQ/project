@@ -3,7 +3,9 @@
 
 @guest
 @if (Route::has('login'))
-<script>window.location.href='{{ route('login') }}'</script>
+<script>
+    window.location.href='{{ route('login') }}'
+</script>
 
 @endif
 

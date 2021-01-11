@@ -16,7 +16,7 @@
       <div class="col-md-5 p-lg-5 mx-auto my-5">
         <h1 class="display-4 font-weight-normal">Handphone broken??</h1>
         <p class="lead font-weight-normal">No worries!! We have a solution for you!</p>
-        <a class="btn btn-success" href="{{url('/')}}">Start Now!!</a>
+        <a class="btn btn-success" href="{{url('/userShowShop')}}">Start Now!!</a>
       </div>
   </div>
 
