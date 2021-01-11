@@ -162,10 +162,16 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
 
         if ($result->getState() == 'approved') {
+ 
+          
+
+            //add update record for cart
+            $email = Auth::user()->email;
+
+            Notification::route('mail', $email)->notify(new \App\Notifications\orderPaid($email));
             
-            
-            
-            $myorders=DB::table('orders')
+
+ $myorders=DB::table('orders')
         ->leftjoin('carts', 'orders.id', '=', 'carts.orderID')
         ->leftjoin('phones', 'phones.id', '=', 'carts.ProductID')
         ->select('carts.*','orders.*','phones.*','carts.quantity as qty','carts.ProductID as productID','orders.id as ID')
@@ -192,22 +198,8 @@ class PaymentController extends Controller
                $products->quantity=$qtya-$quantity;
                $products->save();
             }
-               
-                
-                    
-               
-            
-                
-               
-               
-           
 
             Session::flash('paymentSuccess', 'Payment success');
-
-            //add update record for cart
-            $email = Auth::user()->email;
-
-            Notification::route('mail', $email)->notify(new \App\Notifications\orderPaid($email));
             return Redirect::to('userShowPhone');  //back to product page
             
         }
