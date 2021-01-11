@@ -93,6 +93,9 @@ Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithp
 // route for check status of the payment
 Route::get('/status', [App\Http\Controllers\PaymentController::class, 'getPaymentStatus'])->name('status');
 
+//PDF report
+Route::get('/pdfReport', [App\Http\Controllers\PDFController::class, 'pdfReport'])->name('pdfReport');
+
 Auth::routes();
 
 
