@@ -56,7 +56,7 @@
                     <form action="{{ route('search.product') }}" method="Get">
                         @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control" name="searchproduct" id="searchproduct" placeholder="Search">
+                            <input type="text" class="form-control" name="searchProduct" id="searchProduct" placeholder="Search">
                             <button class="btn btn-success" type="submit">Search</button>
                         </div>
                     </form>
