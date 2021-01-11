@@ -18,7 +18,7 @@ class CreateRatingsTable extends Migration
             $table->string('userID');
             $table->string('phoneID');
             $table->string('username');
-            $table->integer('ratingPoints');
+            $table->double('ratingPoints',1,1);
             $table->string('comment');
             $table->timestamps();
         });
