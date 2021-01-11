@@ -8,7 +8,7 @@ use App\Models\Phone;
 use App\Models\Category;
 Use Session;
 use Auth;
-
+use App\Models\rating;
 
 class PhoneController extends Controller
 {
@@ -98,13 +98,15 @@ class PhoneController extends Controller
 
 
     public function showProductDetail($id){
-       
+        $r=request();
         $products =Phone::all()->where('id',$id);
+        $rating=rating::where('phoneID',$id)->get();
         $random =Phone::where('id','!=',$id)->inRandomOrder()->take(4)->get();
         //select * from products where id='$id'
         
         return view('phonedetail')->with('products',$products)
                                 ->with('random',$random)
+                                ->with('rating',$rating)
                                 ->with('phoneID',$id)
                                 ->with('categories',Category::all());
     }
