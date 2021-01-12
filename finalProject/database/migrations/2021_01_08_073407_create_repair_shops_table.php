@@ -23,7 +23,7 @@ class CreateRepairShopsTable extends Migration
             $table->string('country');
             $table->string('ZIPcode');
             $table->string('phoneNumber');
-            $table->double('ratingPoints',2,1);
+            $table->double('ratingPoints',255,1);
             $table->integer('ratingUser');
             $table->timestamps();
         });
