@@ -28,36 +28,36 @@
                 
                     @csrf
                     <div class="row">
-                        @foreach($shops as $shops)
+                        @foreach($shops as $shop)
                         <div class="col-sm-6">
-                            <a href="{{ route('shop.detail', ['id' => $shops->id]) }}">
+                            <a href="{{ route('shop.detail', ['id' => $shop->id]) }}">
                             <div class="card mb-6 text-center " >
                                 <div class="card-body" hre="" >
-                                    <h3 class="card-title"><strong>{{$shops->name}}</strong></h3>
-                                    <h3 class="card-text ">Rating:{{$shops->ratingPoints}}</h3>
+                                    <h3 class="card-title"><strong>{{$shop->name}}</strong></h3>
+                                    <h3 class="card-text ">Rating:{{$shop->ratingPoints}}</h3>
                                     <p class="card-text  " style="padding: 0px 0px 0 20px"></p>
-                                    <a href=" https://wa.me/+60{{$shops->phoneNumber}}"
+                                    <a href=" https://wa.me/+60{{$shop->phoneNumber}}"
                                         data-action="share/whatsapp/share"
                                         onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes');return false;"
                                         target="_blank" title="Share on whatsapp">
-                                        Contact:{{$shops->phoneNumber}}
+                                        Contact:{{$shop->phoneNumber}}
                                     </a>
                                 </div>
                                 <div class="card-footer bg-transparent ">
                                     <small class="text-muted">
-                                        <strong>Location:</strong>{{$shops->address}},{{$shops->ZIPcode}},{{$shops->city}},{{$shops->state}},{{$shops->country}}.
+                                        <strong>Location:</strong>{{$shop->address}},{{$shop->ZIPcode}},{{$shop->city}},{{$shop->state}},{{$shop->country}}.
                                     </small>
                                 </div>
                             </div>
                             </a>
                         </div>
-                        
+                       
                         @endforeach
+                       
                     </div>
-
-
+                  
                 </form>
-
+                {{$shops->links('pagination::bootstrap-4')}}
             </div> <!-- END of content -->
         </div> <!-- END of main -->
 

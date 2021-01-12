@@ -60,9 +60,8 @@
 			<tbody>
 				@foreach($shops as $shops)
 				<tr>
-					@foreach($companyID as $shops)
+					
 					<td>{{$shops->companyID}}</td>
-					@endforeach
 					<td>{{$shops->name}}</td>
 					<td>{{$shops->address}}</td>
 					<td>{{$shops->city}}</td>
