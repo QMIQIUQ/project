@@ -27,7 +27,7 @@ class userShowShop extends Controller
         ->orwhere('repair_shops.address', 'like', '%' . $keyword . '%')
         ->orWhere('repair_shops.city', 'like', '%' . $keyword . '%')
         ->orWhere('repair_shops.state', 'like', '%' . $keyword . '%')
-        ->get();
+        ->paginate(6);
         
                
         return view('userShowShop')->with('shops',$shops);
