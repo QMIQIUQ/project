@@ -56,6 +56,7 @@ Route::get('/showRate', [App\Http\Controllers\ratingController::class, 'showRate
 Route::get('/insertRate', [App\Http\Controllers\ratingController::class, 'create'])->name('insertRate');
 Route::get('/deleteRate/{id}', [App\Http\Controllers\ratingController::class, 'delete'])->name('deleteRate');
 
+Route::post('/insertShopRate/store', [App\Http\Controllers\ShopController::class, 'storeRate'])->name('addShopRate');
 
 //search
 Route::get('/searchProduct', [App\Http\Controllers\userShowPhone::class, 'search'])->name('search.product');

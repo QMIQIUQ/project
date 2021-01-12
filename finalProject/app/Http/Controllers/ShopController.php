@@ -90,15 +90,25 @@ class ShopController extends Controller
         return redirect()->route('showShop');
     }
     public function showShopDetail($id){
-        $r=request();
-        $shops =repairShop::all()->where('id',$id);
-        $rating=rating::where('phoneID',$id)->get();
-       
-        //select * from products where id='$id'
         
+        $shops =repairShop::all()->where('id',$id);
         return view('shopdetail')->with('shops',$shops)
-                                ->with('rating',$rating)
-                                ->with('phoneID',$id)
+                                ->with('shopsID',$id)
                                 ->with('insert_companies',insertCompany::all());
     }
-}
+
+    public function storeRate(){
+        $r=request(); 
+
+        $shops =repairShop::all()->find($r->id);
+        $shops->ratingPoints=$r->ratingP+$r->ratingPoint;
+        $shops->ratingUser=$r->ratingU;
+        $shops->save();
+
+
+        Session::flash('Success'," Rate succesful!");
+        return redirect()->route('shop.detail', ['id' => $r->id]);
+    }
+    }
+
+
