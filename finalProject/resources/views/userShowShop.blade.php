@@ -34,8 +34,16 @@
                             <div class="card mb-6 text-center " >
                                 <div class="card-body" hre="" >
                                     <h3 class="card-title"><strong>{{$shops->name}}</strong></h3>
-                                    <h3 class="card-text ">Rating:{{$shops->ratingPoints}}</h3>
+                                    @if($shops->ratingUser != 0)
+                                    <h3 class="card-text  " >Rating: ★ {{number_format($shops->ratingPoints/$shops->ratingUser,1)}}<h6> {{$shops->ratingUser}} users ratted </h6></h3>
+                                   
+                                    @else
+    
+                                    <h3 class="card-text  " >No Ratting Yet</h3>
+                                    @endif
+                                   
                                     <p class="card-text  " style="padding: 0px 0px 0 20px"></p>
+                                   
                                     <a href=" https://wa.me/+60{{$shops->phoneNumber}}"
                                         data-action="share/whatsapp/share"
                                         onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes');return false;"
