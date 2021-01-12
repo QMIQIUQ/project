@@ -13,7 +13,22 @@
 @elseif (Auth::user()->admin == 0||Auth::user()->admin == 1||Auth::user()->admin == 2)
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	.btn {
+		background-color: #4E4E4E;
+		border: none;
+		color: white;
+		padding: 12px 16px;
+		font-size: 16px;
+		cursor: pointer;
+	}
 
+	/* Darker background on mouse-over */
+	.btn:hover {
+		background-color: RoyalBlue;
+	}
+</style>
 
 
 
@@ -52,12 +67,11 @@
 					<td>{{$product->CategoryID}}</td>
 					<td>{{$product->quantity}}</td>
 					<td>{{$product->price}}</td>
+					
 					<td>
-						<a href="{{route('editPhone', ['id' => $product->id])}}" class="btn btn-warning"><i
-								class="fas fa-edit">Edit</i></a> |
-						<a href="{{ route('deletePhone', ['id' => $product->id]) }}" class="btn btn-danger"
-							onclick="return confirm('Sure Want Delete?')">Delete</a>
-
+						<a href="{{route('editPhone', ['id' => $product->id])}}"><i class="btn fa fa-pencil"></i></a>
+						<a href="{{ route('deletePhone', ['id' => $product->id]) }}" class="btn fa fa-trash"
+							onclick="return confirm('Sure Want Delete?')"></a>
 					</td>
 				</tr>
 				@endforeach
