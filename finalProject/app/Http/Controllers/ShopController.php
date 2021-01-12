@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\insertCompany;
 use App\Models\repairShop;
+use App\Models\rating;
 use Auth;
 Use Session;
 class ShopController extends Controller
@@ -84,5 +85,17 @@ class ShopController extends Controller
         $shops->save(); //run the SQL update statment
         Session::flash('Success'," edit succesful!");
         return redirect()->route('showShop');
+    }
+    public function showShopDetail($id){
+        $r=request();
+        $shops =repairShop::all()->where('id',$id);
+        $rating=rating::where('phoneID',$id)->get();
+       
+        //select * from products where id='$id'
+        
+        return view('shopdetail')->with('shops',$shops)
+                                ->with('rating',$rating)
+                                ->with('phoneID',$id)
+                                ->with('insert_companies',insertCompany::all());
     }
 }

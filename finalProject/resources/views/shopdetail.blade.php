@@ -11,64 +11,48 @@
         <div id="templatemo_main">
 
 
-            @foreach($products as $product)
+            @foreach($shops as $shops)
             <div id="content">
 
-                <h2>Product Details</h2>
-                <div class="col col_13"><img src="{{ asset('images/') }}/{{$product->image}}" width="200px" /></div>
-                <form action="{{route('add.to.cart')}}" method="post">
+                <h2>Shop Details</h2>
+                <div class="col col_13"></div>
+                <form action="" method="post">
                     @csrf
                     <div class="col col_13 no_margin_right">
                         <table>
                             <tr>
-                                <td height="30" width="160">Name:</td>
-                                <td>{{$product->name}}</td>
+                                <td height="30" width="160">Shop Name:</td>
+                                <td>{{$shops->name}}</td>
                             </tr>
-                            <tr>
-                                <td height="30">Availability:</td>
-                                <td>{{$product->quantity}}</td>
-                            </tr>
+
                             <tr>
                                 <td height="30">Price:</td>
-                                <td>RM{{$product->price}}</td>
+                                <td><a href=" https://wa.me/+60{{$shops->phoneNumber}}"
+                                        data-action="share/whatsapp/share"
+                                        onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes');return false;"
+                                        target="_blank" title="Share on whatsapp">
+                                        Contact:{{$shops->phoneNumber}}
+                                    </a></td>
                             </tr>
-                            <tr>
-                                <td height="30">Seller:</td>
-                                <td>{{$product->username}}</td>
-                            </tr>
-                            <tr>
-                                <td height="50">Quantity</td>
-                                <td><input type="number" name="quantity" id="qty" value="1" min="1"
-                                        max="{{$product->quantity}}"></td>
-                            </tr>
+
+
                         </table>
                         <div class="cleaner h20"></div>
 
-                        <input type="hidden" value="{{ $count=$product->quantity}}">
-                        @if ($count == 0)
-                        <button type="submit" class="btn btn-danger" style="height:40px; font-size: 15px;" disabled>sold
-                            out</button>
-                        @else
 
-                        <button type="submit" class="btn btn-secondary" style="height:40px; font-size: 15px;">Add To
-                            Cart</button>
 
-                        @endif
+
 
                     </div>
                     <div class="cleaner h30"></div>
 
-                    <h5><strong>Product Description</strong></h5>
-                    <p>{{$product->description}}</p>
+                    <h5><strong>Shop Address</strong></h5>
+                    <p>{{$shops->address}},{{$shops->ZIPcode}},{{$shops->city}},{{$shops->state}},{{$shops->country}}.</p>
 
                     <div class="cleaner h50"></div>
-                    <input type="hidden" name="id" id="id" value="{{$product->id}}">
-                    <input type="hidden" id="name" name="name" value="{{$product->name}}">
-                    <input type="hidden" id="amount" name="amount" value="">
-
-                    <h4><strong>Other Products</strong></h4>
-                    @include('random')
-
+                    <input type="hidden" name="id" id="id" value="{{$shops->id}}">
+                    
+                   
                     <div class="cleaner"></div>
                 </form>
 
@@ -127,7 +111,7 @@
                 @endguest
 
 
-               
+
                 <div class="card my-4">
                     <h5 class="card-header">Rating & Comments <span class="badge badge-dark"></span></h5>
                     <div class="card-body">
@@ -139,34 +123,35 @@
                         $numComment=0;
                         @endphp
                         @foreach($rating as $item)
-                       @php
-                           $calpoint= $calpoint+($item->ratingPoints);
+                        @php
+                        $calpoint= $calpoint+($item->ratingPoints);
                         $numComment=$numComment+1;
-                       @endphp
-                        
+                        @endphp
+
                         @endforeach
 
-                        
-                        
+
+
                         @if($numComment != 0)
                         @php
-                        $total=  number_format($calpoint/$numComment,1);
+                        $total= number_format($calpoint/$numComment,1);
                         @endphp
-                        
-                          Total user Ratting {{$total}} ★
-                       @endif
-                        
 
-                          @foreach($rating as $ratings)
-                          <blockquote class="blockquote">
-                              <p class="mb-0">{{$ratings->comment}}</p>
-                              <footer class="blockquote-footer">by:{{$ratings->username}} | ★:{{$ratings->ratingPoints}}</footer>  
-                          </blockquote>
-                          @endforeach
+                        Total user Ratting {{$total}} ★
+                        @endif
+
+
+                        @foreach($rating as $ratings)
+                        <blockquote class="blockquote">
+                            <p class="mb-0">{{$ratings->comment}}</p>
+                            <footer class="blockquote-footer">by:{{$ratings->username}} | ★:{{$ratings->ratingPoints}}
+                            </footer>
+                        </blockquote>
+                        @endforeach
                     </div>
-                   
+
                 </div>
-               
+
 
 
             </div> <!-- END of content -->
@@ -186,7 +171,7 @@
     .rate:not(:checked)>input {
         position: absolute;
         top: -9999px;
-        
+
     }
 
     .rate:not(:checked)>label {

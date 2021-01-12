@@ -23,13 +23,16 @@
                         </div>
                     </form>
                 </div>
+               
                 <form action="" method="post">
+                
                     @csrf
                     <div class="row">
                         @foreach($shops as $shops)
                         <div class="col-sm-6">
-                            <div class="card mb-6 text-center ">
-                                <div class="card-body" >
+                            <a href="{{ route('shop.detail', ['id' => $shops->id]) }}">
+                            <div class="card mb-6 text-center " >
+                                <div class="card-body" hre="" >
                                     <h3 class="card-title"><strong>{{$shops->name}}</strong></h3>
                                     <h3 class="card-text ">Rating:{{$shops->ratingPoints}}</h3>
                                     <p class="card-text  " style="padding: 0px 0px 0 20px"></p>
@@ -46,6 +49,7 @@
                                     </small>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         
                         @endforeach

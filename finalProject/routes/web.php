@@ -87,6 +87,7 @@ Route::post('/updaterepairShop', [App\Http\Controllers\ShopController::class, 'u
 
 
 Route::get('/userShowShop', [App\Http\Controllers\userShowShop::class, 'show'])->name('userShowShop');
+Route::get('/shop_detail/{id}', [App\Http\Controllers\ShopController::class, 'showShopDetail'])->name('shop.detail');
 Route::get('/searchShop', [App\Http\Controllers\userShowShop::class, 'search'])->name('search.shop');
 //paypal
 Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
