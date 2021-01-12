@@ -54,7 +54,7 @@ class ShopController extends Controller
         $shops=DB::table('repair_shops')
         ->leftjoin('insert_companies','insert_companies.id','=','repair_shops.companyID')
         ->select('repair_shops.*','insert_companies.*')
-        ->where('insert_companies.id','=',Auth::id())
+        ->where('insert_companies.userID','=',Auth::id())
         ->get();
         return view('showShop')->with('shops',$shops);
     }
