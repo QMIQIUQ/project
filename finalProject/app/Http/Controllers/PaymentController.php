@@ -173,7 +173,7 @@ class PaymentController extends Controller
 
  $myorders=DB::table('orders')
         ->leftjoin('carts', 'orders.id', '=', 'carts.orderID')
-        ->leftjoin('phones', 'phones.id', '=', 'carts.ProductID')
+        ->leftjoin('product', 'phones.id', '=', 'carts.ProductID')
         ->select('carts.*','orders.*','phones.*','carts.quantity as qty','carts.ProductID as productID','orders.id as ID')
         ->where('orders.userID','=',Auth::id())
         ->where('orders.paymentStatus','=','pending')

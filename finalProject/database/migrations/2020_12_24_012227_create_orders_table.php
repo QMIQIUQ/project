@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string("paymentStatus");
             $table->string("userID");
             $table->integer("amount")->unsinged();
-            $table->integer("amount")->unsinged();
+            $table->integer("quantity")->unsinged();
             $table->timestamps();
         });
     }
